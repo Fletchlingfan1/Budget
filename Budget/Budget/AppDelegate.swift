@@ -2,6 +2,7 @@
 //  AppDelegate.swift
 //  Budget
 //
+//  Nerd
 //  Created by Daxton Dollar on 1/14/20.
 //  Copyright © 2020 Daxton Dollar. All rights reserved.
 //
