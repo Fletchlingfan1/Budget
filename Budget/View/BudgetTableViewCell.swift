@@ -10,8 +10,9 @@ import UIKit
 
 class BudgetTableViewCell: UITableViewCell {
 
-    @IBOutlet var budgetNameField: UITextField!
-    @IBOutlet var budgetTotalField: UITextField!
+    @IBOutlet var budgetNameTextField: UITextField!
+    @IBOutlet var budgetAmountTextField: UITextField!
+    
     
     
     override func awakeFromNib() {
