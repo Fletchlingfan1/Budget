@@ -7,25 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		608FC96B23D8B17B001E7BF1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FC96A23D8B17B001E7BF1 /* Transaction.swift */; };
+		608FC96D23D8B346001E7BF1 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FC96C23D8B346001E7BF1 /* Stack.swift */; };
+		608FC96F23D9E930001E7BF1 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FC96E23D9E930001E7BF1 /* Budget.swift */; };
+		608FC97123D9E945001E7BF1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FC97023D9E945001E7BF1 /* Account.swift */; };
+		608FC97323D9F37E001E7BF1 /* BudgetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FC97223D9F37E001E7BF1 /* BudgetController.swift */; };
 		7EEBB84323CE15A1000F8F62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEBB84223CE15A1000F8F62 /* AppDelegate.swift */; };
 		7EEBB84523CE15A1000F8F62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEBB84423CE15A1000F8F62 /* SceneDelegate.swift */; };
-		7EEBB84723CE15A1000F8F62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEBB84623CE15A1000F8F62 /* ViewController.swift */; };
 		7EEBB84A23CE15A1000F8F62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EEBB84823CE15A1000F8F62 /* Main.storyboard */; };
 		7EEBB84D23CE15A1000F8F62 /* Budget.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7EEBB84B23CE15A1000F8F62 /* Budget.xcdatamodeld */; };
 		7EEBB84F23CE15A3000F8F62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EEBB84E23CE15A3000F8F62 /* Assets.xcassets */; };
 		7EEBB85223CE15A3000F8F62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EEBB85023CE15A3000F8F62 /* LaunchScreen.storyboard */; };
+		F32C669B23D8ABDA00D6AC17 /* BudgetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C669A23D8ABDA00D6AC17 /* BudgetsTableViewController.swift */; };
+		F32C669D23D8ACA400D6AC17 /* BudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C669C23D8ACA400D6AC17 /* BudgetTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		608FC96A23D8B17B001E7BF1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		608FC96C23D8B346001E7BF1 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		608FC96E23D9E930001E7BF1 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		608FC97023D9E945001E7BF1 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		608FC97223D9F37E001E7BF1 /* BudgetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetController.swift; sourceTree = "<group>"; };
 		7EEBB83F23CE15A1000F8F62 /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EEBB84223CE15A1000F8F62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EEBB84423CE15A1000F8F62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7EEBB84623CE15A1000F8F62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7EEBB84923CE15A1000F8F62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7EEBB84C23CE15A1000F8F62 /* Budget.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budget.xcdatamodel; sourceTree = "<group>"; };
 		7EEBB84E23CE15A3000F8F62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EEBB85123CE15A3000F8F62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7EEBB85323CE15A3000F8F62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F32C669A23D8ABDA00D6AC17 /* BudgetsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsTableViewController.swift; sourceTree = "<group>"; };
+		F32C669C23D8ACA400D6AC17 /* BudgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,9 +51,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		608FC96923D8B151001E7BF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				608FC97223D9F37E001E7BF1 /* BudgetController.swift */,
+				608FC96C23D8B346001E7BF1 /* Stack.swift */,
+				608FC96A23D8B17B001E7BF1 /* Transaction.swift */,
+				608FC97023D9E945001E7BF1 /* Account.swift */,
+				608FC96E23D9E930001E7BF1 /* Budget.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7EEBB83623CE15A1000F8F62 = {
 			isa = PBXGroup;
 			children = (
+				608FC96923D8B151001E7BF1 /* Model */,
 				7EEBB84123CE15A1000F8F62 /* Budget */,
 				7EEBB84023CE15A1000F8F62 /* Products */,
 			);
@@ -60,8 +85,9 @@
 			children = (
 				7EEBB84223CE15A1000F8F62 /* AppDelegate.swift */,
 				7EEBB84423CE15A1000F8F62 /* SceneDelegate.swift */,
-				7EEBB84623CE15A1000F8F62 /* ViewController.swift */,
 				7EEBB84823CE15A1000F8F62 /* Main.storyboard */,
+				F32C669A23D8ABDA00D6AC17 /* BudgetsTableViewController.swift */,
+				F32C669C23D8ACA400D6AC17 /* BudgetTableViewCell.swift */,
 				7EEBB84E23CE15A3000F8F62 /* Assets.xcassets */,
 				7EEBB85023CE15A3000F8F62 /* LaunchScreen.storyboard */,
 				7EEBB85323CE15A3000F8F62 /* Info.plist */,
@@ -141,10 +167,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EEBB84723CE15A1000F8F62 /* ViewController.swift in Sources */,
+				F32C669B23D8ABDA00D6AC17 /* BudgetsTableViewController.swift in Sources */,
+				F32C669D23D8ACA400D6AC17 /* BudgetTableViewCell.swift in Sources */,
 				7EEBB84323CE15A1000F8F62 /* AppDelegate.swift in Sources */,
 				7EEBB84D23CE15A1000F8F62 /* Budget.xcdatamodeld in Sources */,
 				7EEBB84523CE15A1000F8F62 /* SceneDelegate.swift in Sources */,
+				608FC96D23D8B346001E7BF1 /* Stack.swift in Sources */,
+				608FC97323D9F37E001E7BF1 /* BudgetController.swift in Sources */,
+				608FC97123D9E945001E7BF1 /* Account.swift in Sources */,
+				608FC96F23D9E930001E7BF1 /* Budget.swift in Sources */,
+				608FC96B23D8B17B001E7BF1 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
