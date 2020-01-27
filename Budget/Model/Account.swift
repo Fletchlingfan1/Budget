@@ -11,14 +11,13 @@ import CoreData
 
 extension Account {
     
-    convenience init?(accountAmount: Double, accountName:String, accountTotal:Double, context: NSManagedObjectContext = Stack.context){
+    convenience init?(accountAmount: Double, accountName:String, context: NSManagedObjectContext = Stack.context){
         
         
         self.init(context: context)
         
         self.accountAmount = accountAmount
         self.accountName = accountName
-        self.accountTotal = accountTotal
     }
     
 }

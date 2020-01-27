@@ -3,26 +3,24 @@
     <entity name="Account" representedClassName="Account" syncable="YES" codeGenerationType="class">
         <attribute name="accountAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="accountName" optional="YES" attributeType="String"/>
-        <attribute name="accountTotal" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="budgetToAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Budget" inverseName="budgetToAccount" inverseEntity="Budget"/>
     </entity>
     <entity name="Budget" representedClassName="Budget" syncable="YES" codeGenerationType="class">
         <attribute name="budgetAmount" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="budgetName" optional="YES" attributeType="String"/>
-        <attribute name="budgetTotal" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="budgetToAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="budgetToAccount" inverseEntity="Account"/>
         <relationship name="transToBudget" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Transactions" inverseName="transToBudget" inverseEntity="Transactions"/>
     </entity>
     <entity name="Transactions" representedClassName="Transactions" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="transactionAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="transactionName" optional="YES" attributeType="String"/>
         <relationship name="transToBudget" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Budget" inverseName="transToBudget" inverseEntity="Budget"/>
     </entity>
     <elements>
-        <element name="Account" positionX="-54" positionY="-9" width="128" height="103"/>
-        <element name="Budget" positionX="-63" positionY="-18" width="128" height="133"/>
-        <element name="Transactions" positionX="-36" positionY="9" width="128" height="103"/>
+        <element name="Account" positionX="-54" positionY="-9" width="128" height="88"/>
+        <element name="Budget" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Transactions" positionX="-36" positionY="9" width="128" height="118"/>
     </elements>
 </model>
