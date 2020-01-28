@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X9M-yN-poR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X9M-yN-poR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,7 +48,6 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" red="0.86574006079999999" green="0.1356030107" blue="0.17494696379999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="ToE-Hk-n0h" firstAttribute="centerX" secondItem="IKY-Fj-xlu" secondAttribute="centerX" id="3Wy-1k-NJY"/>
                                 <constraint firstItem="950-zU-N9s" firstAttribute="centerX" secondItem="IKY-Fj-xlu" secondAttribute="centerX" id="GQ3-tt-mja"/>
@@ -92,8 +91,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="budgetNameField" destination="dCv-Qa-hKw" id="qcm-7x-LLl"/>
-                                    <outlet property="budgetTotalField" destination="owU-Bl-cDu" id="5mZ-Uu-6dC"/>
+                                    <outlet property="budgetAmountTextField" destination="owU-Bl-cDu" id="Q5b-Q4-IQT"/>
+                                    <outlet property="budgetNameTextField" destination="dCv-Qa-hKw" id="RuU-GR-RXT"/>
                                     <segue destination="SFn-8m-vTd" kind="show" id="rQ3-ee-num"/>
                                 </connections>
                             </tableViewCell>
@@ -104,7 +103,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="isc-OJ-7aU">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="o7c-Q0-ifu"/>
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="twF-tR-Teo"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="o7c-Q0-ifu">
+                            <connections>
+                                <segue destination="rKW-gM-IW6" kind="show" id="Dz9-Pp-JsP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="accountTotalTextField" destination="950-zU-N9s" id="D7s-nf-cJT"/>
@@ -117,7 +121,7 @@
         <!--Transactions-->
         <scene sceneID="gI0-yf-L2I">
             <objects>
-                <viewController id="SFn-8m-vTd" sceneMemberID="viewController">
+                <viewController id="SFn-8m-vTd" customClass="TransactionsViewController" customModule="Budget" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cyd-Kj-pG5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,7 +130,7 @@
                                 <rect key="frame" x="0.0" y="132" width="414" height="686"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XrP-VG-Icr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XrP-VG-Icr" customClass="TransactionTableViewCell" customModule="Budget" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XrP-VG-Icr" id="fUn-jE-cyo">
@@ -165,6 +169,12 @@
                                                 <constraint firstItem="GIE-Oc-V5P" firstAttribute="leading" secondItem="Prl-ei-bjg" secondAttribute="trailing" constant="8" id="xCH-Q4-bLy"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="transactionAmountTextField" destination="vZo-6i-Wcx" id="uGp-LA-4GK"/>
+                                            <outlet property="transactionDateTextField" destination="GIE-Oc-V5P" id="FQY-Gk-adG"/>
+                                            <outlet property="transactionNameTextField" destination="Prl-ei-bjg" id="cfH-Tr-hiz"/>
+                                            <segue destination="eOm-u2-X9U" kind="show" id="ym1-nT-F5p"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -225,10 +235,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="budgetAmountTextField" destination="paq-aj-9eu" id="LDw-56-Vjr"/>
+                        <outlet property="budgetNameTextField" destination="A3Z-XM-tzp" id="BFw-Xq-kle"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxV-Nc-rzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2476.811594202899" y="162.72321428571428"/>
+            <point key="canvasLocation" x="2358" y="499"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="nZO-66-byE">
@@ -248,8 +262,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="141"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Add Transaction" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Cp2-st-hFt">
-                                                    <rect key="frame" x="140" y="4" width="135" height="74"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add Transaction" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Cp2-st-hFt">
+                                                    <rect key="frame" x="139.5" y="4" width="135" height="74"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="74" id="UeB-yK-eTj"/>
@@ -261,6 +275,7 @@
                                                 </textView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Cp2-st-hFt" firstAttribute="top" secondItem="8ls-LR-bkg" secondAttribute="top" constant="4" id="AdF-lc-0G9"/>
                                                 <constraint firstItem="Cp2-st-hFt" firstAttribute="centerX" secondItem="8ls-LR-bkg" secondAttribute="centerX" id="whg-3u-ygX"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -422,11 +437,13 @@
                             <outlet property="delegate" destination="eOm-u2-X9U" id="WL2-to-BU5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="1WQ-JR-JUD"/>
+                    <navigationItem key="navigationItem" id="1WQ-JR-JUD">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="UUK-YU-aHj"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIX-Qh-en0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3274" y="163"/>
+            <point key="canvasLocation" x="3055" y="163"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bhl-zs-EBV">
@@ -446,8 +463,132 @@
             </objects>
             <point key="canvasLocation" x="970" y="163"/>
         </scene>
+        <!--Add Budget Table View Controller-->
+        <scene sceneID="QJs-Ms-uXH">
+            <objects>
+                <tableViewController id="rKW-gM-IW6" customClass="AddBudgetTableViewController" customModule="Budget" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8SH-fp-1nv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection id="Z5n-ar-h67">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="141" id="AbS-Mv-PD7">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="141"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AbS-Mv-PD7" id="XOP-xH-SML">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="141"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add Budget" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HKa-WA-rW6">
+                                                    <rect key="frame" x="139.5" y="4" width="135" height="74"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="74" id="IGE-zd-UEq"/>
+                                                        <constraint firstAttribute="width" constant="135" id="Qry-QS-ZCN"/>
+                                                    </constraints>
+                                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HKa-WA-rW6" firstAttribute="top" secondItem="XOP-xH-SML" secondAttribute="top" constant="4" id="1jd-wY-VHh"/>
+                                                <constraint firstItem="HKa-WA-rW6" firstAttribute="centerX" secondItem="XOP-xH-SML" secondAttribute="centerX" id="FFv-sZ-2xP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SLF-80-Q2s">
+                                        <rect key="frame" x="0.0" y="169" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SLF-80-Q2s" id="n8a-Ju-s7V">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qJw-kx-jp0">
+                                                    <rect key="frame" x="8" y="5" width="120" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="RbD-jp-CYZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Avengers Xfynity War" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sX5-x9-zEB">
+                                                    <rect key="frame" x="151" y="5" width="255" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="255" id="Kln-yz-eC2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qJw-kx-jp0" firstAttribute="centerY" secondItem="n8a-Ju-s7V" secondAttribute="centerY" id="EQo-AY-G5Q"/>
+                                                <constraint firstItem="sX5-x9-zEB" firstAttribute="centerY" secondItem="n8a-Ju-s7V" secondAttribute="centerY" id="NgK-jn-a8V"/>
+                                                <constraint firstAttribute="trailing" secondItem="sX5-x9-zEB" secondAttribute="trailing" constant="8" id="T58-c1-LBD"/>
+                                                <constraint firstItem="qJw-kx-jp0" firstAttribute="leading" secondItem="n8a-Ju-s7V" secondAttribute="leading" constant="8" id="jcu-tl-v3d"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cnQ-nA-6gE">
+                                        <rect key="frame" x="0.0" y="212.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cnQ-nA-6gE" id="BdQ-EY-J2a">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Amount" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Um5-ON-XKr">
+                                                    <rect key="frame" x="8" y="5" width="120" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="80g-Sg-sij"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="RXx-Sj-ZLT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$1000.00" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="adI-Um-ks6">
+                                                    <rect key="frame" x="151" y="5" width="255" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="255" id="Odz-LJ-Lcb"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="255" id="x0b-Ns-UXR"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="adI-Um-ks6" secondAttribute="trailing" constant="8" id="2VR-6c-iu2"/>
+                                                <constraint firstItem="adI-Um-ks6" firstAttribute="centerY" secondItem="BdQ-EY-J2a" secondAttribute="centerY" id="7Bw-uS-XHq"/>
+                                                <constraint firstItem="Um5-ON-XKr" firstAttribute="centerY" secondItem="BdQ-EY-J2a" secondAttribute="centerY" id="Hi7-D5-lwZ"/>
+                                                <constraint firstItem="Um5-ON-XKr" firstAttribute="leading" secondItem="BdQ-EY-J2a" secondAttribute="leading" constant="8" id="qIT-1h-acM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="rKW-gM-IW6" id="waZ-QA-861"/>
+                            <outlet property="delegate" destination="rKW-gM-IW6" id="YXp-g6-fs2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="dWo-c3-6iM"/>
+                    <connections>
+                        <outlet property="amountTextField" destination="adI-Um-ks6" id="C3k-2o-SJO"/>
+                        <outlet property="budgetTitleTextField" destination="HKa-WA-rW6" id="tWS-Ng-Jk2"/>
+                        <outlet property="nameTextField" destination="sX5-x9-zEB" id="Cc7-Of-YiF"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pA2-Rj-22U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2358" y="-141"/>
+        </scene>
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mCi-AG-fF7"/>
+    </inferredMetricsTieBreakers>
 </document>

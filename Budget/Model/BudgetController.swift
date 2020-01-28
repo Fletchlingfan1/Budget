@@ -26,7 +26,7 @@ class BudgetController {
     }
     
     func addBudget(budgetName: String, budgetAmount: Double, budgetTotal:Double, date:Date) {
-        let _ = Budget(budgetName: budgetName, budgetAmount: budgetAmount, budgetTotal: budgetTotal, date: date)
+        let _ = Budget(budgetName: budgetName, budgetAmount: budgetAmount)
         saveBudget()
     }
     func deleteBudget(budget:Budget) {
