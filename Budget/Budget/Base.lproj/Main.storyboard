@@ -573,7 +573,13 @@
                             <outlet property="delegate" destination="rKW-gM-IW6" id="YXp-g6-fs2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="dWo-c3-6iM"/>
+                    <navigationItem key="navigationItem" id="dWo-c3-6iM">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="aWB-ZR-iU1">
+                            <connections>
+                                <action selector="saveBudget:" destination="rKW-gM-IW6" id="pWa-wN-vb5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="amountTextField" destination="adI-Um-ks6" id="C3k-2o-SJO"/>
                         <outlet property="budgetTitleTextField" destination="HKa-WA-rW6" id="tWS-Ng-Jk2"/>

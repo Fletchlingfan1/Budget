@@ -11,8 +11,12 @@ import UIKit
 class AddBudgetTableViewController: UITableViewController {
     
     @IBOutlet var budgetTitleTextField: UITextView!
-    @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var amountTextField: UITextField!
+    @IBOutlet var budgetName: UITextField!
+    @IBOutlet var budgetAmount: UITextField!
+    
+    var budget: Budget?
+    
+  
     
 
     override func viewDidLoad() {
@@ -26,6 +30,22 @@ class AddBudgetTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
+    
+    
+    @IBAction func saveBudget(_ sender: Any){
+        guard let name = budgetName.text,
+            let amount = budgetAmount.text,
+            let amountDouble = Double(amount) else {return}
+        if let budget = budget {
+            budget.budgetName = name
+            budget.budgetAmount = amountDouble
+            BudgetController.sharedController.saveBudget()
+        } else {
+            BudgetController.sharedController.addBudget(budgetName: name, budgetAmount: amountDouble)
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

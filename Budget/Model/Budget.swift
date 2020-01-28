@@ -13,7 +13,6 @@ extension Budget {
     convenience init?(budgetName: String, budgetAmount: Double, context: NSManagedObjectContext = Stack.context){
         
         self.init(context:context)
-        
         self.budgetName = budgetName
         self.budgetAmount = budgetAmount
     }

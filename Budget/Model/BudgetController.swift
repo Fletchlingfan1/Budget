@@ -25,7 +25,7 @@ class BudgetController {
         Stack.saveContext()
     }
     
-    func addBudget(budgetName: String, budgetAmount: Double, budgetTotal:Double, date:Date) {
+    func addBudget(budgetName: String, budgetAmount: Double) {
         let _ = Budget(budgetName: budgetName, budgetAmount: budgetAmount)
         saveBudget()
     }
