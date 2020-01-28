@@ -21,6 +21,7 @@ class BudgetController {
             return []
         }
     }
+    
     func saveBudget()  {
         Stack.saveContext()
     }
@@ -29,9 +30,29 @@ class BudgetController {
         let _ = Budget(budgetName: budgetName, budgetAmount: budgetAmount)
         saveBudget()
     }
+    
+    func addTransaction(transactionAmount: Double, transactionDate: Date, transactionName: String, transactionNotes: String) {
+        let _ = Transactions(transactionAmount: transactionAmount, transactionName: transactionName, transactionNotes: transactionNotes, transactionDate: transactionDate)
+        saveBudget()
+    }
+    
+    func addAccount(accountName: String, accountAmount: Double) {
+        let _ = Account(accountAmount: accountAmount, accountName: accountName)
+        saveBudget()
+    }
+    
     func deleteBudget(budget:Budget) {
         Stack.context.delete(budget)
         saveBudget()
     }
     
+    func deleteAccount(account: Account) {
+        Stack.context.delete(account)
+        saveBudget()
+    }
+    
+    func deleteTransaction(transaction: Transactions) {
+        Stack.context.delete(transaction)
+        saveBudget()
+    }
 }

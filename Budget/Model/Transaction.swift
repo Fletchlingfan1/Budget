@@ -11,12 +11,12 @@ import CoreData
 
 extension Transactions {
     
-    convenience init?(transactionAmount: Double, transactionName:String, notes:String, date:Date, context: NSManagedObjectContext = Stack.context){
+    convenience init?(transactionAmount: Double, transactionName:String, transactionNotes:String, transactionDate:Date, context: NSManagedObjectContext = Stack.context){
         self.init(context: context)
         
         self.transactionAmount = transactionAmount
         self.transactionName = transactionName
-        self.notes = notes
-        self.date = date
+        self.transactionNotes = transactionNotes
+        self.transactionDate = transactionDate
     }
 }
