@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X9M-yN-poR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X9M-yN-poR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -581,9 +581,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="amountTextField" destination="adI-Um-ks6" id="C3k-2o-SJO"/>
+                        <outlet property="budgetAmount" destination="adI-Um-ks6" id="EfZ-5z-ogT"/>
+                        <outlet property="budgetName" destination="sX5-x9-zEB" id="zqa-yQ-R9O"/>
                         <outlet property="budgetTitleTextField" destination="HKa-WA-rW6" id="tWS-Ng-Jk2"/>
-                        <outlet property="nameTextField" destination="sX5-x9-zEB" id="Cc7-Of-YiF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pA2-Rj-22U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
