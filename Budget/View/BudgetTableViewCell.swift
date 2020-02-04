@@ -25,5 +25,10 @@ class BudgetTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func update(with budget: Budget) {
+        budgetNameTextField.text = budget.budgetName
+        budgetAmountTextField.text = "\(budget.budgetAmount)"
+    }
 
 }
