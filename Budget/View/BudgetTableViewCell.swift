@@ -10,8 +10,8 @@ import UIKit
 
 class BudgetTableViewCell: UITableViewCell {
 
-    @IBOutlet var budgetNameTextField: UITextField!
-    @IBOutlet var budgetAmountTextField: UITextField!
+    @IBOutlet var budgetNameLabel: UILabel!
+    @IBOutlet var budgetAmountLabel: UILabel!
     
     
     
@@ -27,8 +27,8 @@ class BudgetTableViewCell: UITableViewCell {
     }
     
     func update(with budget: Budget) {
-        budgetNameTextField.text = budget.budgetName
-        budgetAmountTextField.text = "\(budget.budgetAmount)"
+        budgetNameLabel.text = budget.budgetName
+        budgetAmountLabel.text = "\(budget.budgetAmount)"
     }
 
 }
