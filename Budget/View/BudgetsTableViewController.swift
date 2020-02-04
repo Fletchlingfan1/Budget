@@ -37,8 +37,8 @@ class BudgetsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "budgetCell", for: indexPath) as! BudgetTableViewCell
 
         // Configure the cell...
-        let budget = budgets[indexPath.row]
-        cell.update(with: budget)
+        let budgets = self.budgets[indexPath.row]
+        cell.update(with: budgets)
         return cell
     }
 
