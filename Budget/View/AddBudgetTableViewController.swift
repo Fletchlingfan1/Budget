@@ -22,6 +22,8 @@ class AddBudgetTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // This will make the cell line go away, making this view look more clean. 
+        tableView.tableFooterView = UIView()
         
     }
 

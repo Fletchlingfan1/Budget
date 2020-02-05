@@ -23,9 +23,11 @@ class BudgetsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-//        tableView.reloadData()
+        
+        // This makes the Edit button work.
+        navigationItem.leftBarButtonItem = editButtonItem
+        
+        //        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +62,9 @@ class BudgetsTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 
     /*
     // Override to support rearranging the table view.
