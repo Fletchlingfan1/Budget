@@ -13,15 +13,22 @@ class BudgetsTableViewController: UITableViewController {
 
     @IBOutlet var accountTotalTextField: UITextField!
     
-    var budgets: [Budget] = []
+    var budgets: [Budget] {
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
+        let fetchBudgets = NSFetchRequest<Budget>(entityName: "Budget")
+        return try! delegate.persistentContainer.viewContext.fetch(fetchBudgets)
+    }
         
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let fetchBudgets = NSFetchRequest<Budget>(entityName: "Budget")
-        budgets = try! delegate.persistentContainer.viewContext.fetch(fetchBudgets)
+
+
+//        tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
 
