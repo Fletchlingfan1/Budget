@@ -12,7 +12,7 @@ import CoreData
 class BudgetsTableViewController: UITableViewController {
 
     @IBOutlet var accountTotalTextField: UITextField!
-    
+   
     var budgets: [Budget] {
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
         let fetchBudgets = NSFetchRequest<Budget>(entityName: "Budget")
