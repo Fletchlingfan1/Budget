@@ -75,6 +75,7 @@ class BudgetsTableViewController: UITableViewController {
             let budget = BudgetController.sharedController.budget[indexPath.row]
             BudgetController.sharedController.deleteBudget(budget: budget)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            calculateSum()
         }
     }
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

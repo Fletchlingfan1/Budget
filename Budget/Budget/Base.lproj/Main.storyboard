@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X9M-yN-poR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X9M-yN-poR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -143,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yru-gn-t40">
-                                <rect key="frame" x="0.0" y="131" width="414" height="688"/>
+                                <rect key="frame" x="0.0" y="149.5" width="414" height="669.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XrP-VG-Icr" customClass="TransactionTableViewCell" customModule="Budget" customModuleProvider="target">
@@ -195,15 +195,9 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SU6-xa-flE">
-                                <rect key="frame" x="20" y="96" width="130.5" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <rect key="frame" x="20" y="96" width="223" height="45.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <color key="textColor" name="Text Colors"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzt-gu-ARP">
-                                <rect key="frame" x="285" y="96" width="109" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" name="Positive"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7a-4o-6dM">
@@ -222,16 +216,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="x7a-4o-6dM" firstAttribute="leading" secondItem="ajh-dI-X74" secondAttribute="leading" constant="20" id="1nH-Sv-cXH"/>
-                            <constraint firstItem="ajh-dI-X74" firstAttribute="trailing" secondItem="mzt-gu-ARP" secondAttribute="trailing" constant="20" id="3Ci-m0-zYS"/>
                             <constraint firstItem="ajh-dI-X74" firstAttribute="trailing" secondItem="93N-qX-5hH" secondAttribute="trailing" constant="20" id="EOq-H2-Diu"/>
                             <constraint firstItem="ajh-dI-X74" firstAttribute="bottom" secondItem="93N-qX-5hH" secondAttribute="bottom" constant="8" id="Fef-5v-m9s"/>
                             <constraint firstItem="ajh-dI-X74" firstAttribute="bottom" secondItem="x7a-4o-6dM" secondAttribute="bottom" constant="8" id="GgO-4d-qFY"/>
-                            <constraint firstItem="mzt-gu-ARP" firstAttribute="top" secondItem="ajh-dI-X74" secondAttribute="top" constant="8" id="RDM-By-zmg"/>
                             <constraint firstItem="93N-qX-5hH" firstAttribute="top" secondItem="yru-gn-t40" secondAttribute="bottom" constant="8" id="Uwf-Vl-JXv"/>
                             <constraint firstItem="SU6-xa-flE" firstAttribute="leading" secondItem="ajh-dI-X74" secondAttribute="leading" constant="20" id="XPf-Oo-dOn"/>
                             <constraint firstItem="SU6-xa-flE" firstAttribute="top" secondItem="ajh-dI-X74" secondAttribute="top" constant="8" id="Xxk-Ea-0U2"/>
                             <constraint firstItem="yru-gn-t40" firstAttribute="top" secondItem="SU6-xa-flE" secondAttribute="bottom" constant="8" id="aUQ-kG-RZN"/>
-                            <constraint firstItem="yru-gn-t40" firstAttribute="top" secondItem="mzt-gu-ARP" secondAttribute="bottom" constant="8" id="aZP-j0-FH6"/>
                             <constraint firstItem="x7a-4o-6dM" firstAttribute="top" secondItem="yru-gn-t40" secondAttribute="bottom" constant="8" id="htI-ms-Odx"/>
                             <constraint firstItem="yru-gn-t40" firstAttribute="leading" secondItem="ajh-dI-X74" secondAttribute="leading" id="j2h-do-MAn"/>
                             <constraint firstItem="ajh-dI-X74" firstAttribute="trailing" secondItem="yru-gn-t40" secondAttribute="trailing" id="qw3-7r-1TY"/>
@@ -301,7 +292,7 @@ Transaction</string>
                                                     </constraints>
                                                     <color key="textColor" name="Text Colors"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XU-gH-eyk">
                                                     <rect key="frame" x="20" y="11" width="120" height="22"/>
@@ -336,7 +327,7 @@ Transaction</string>
                                                     </constraints>
                                                     <color key="textColor" name="Text Colors"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xG-Sh-Ery">
                                                     <rect key="frame" x="20" y="11" width="120" height="22"/>
@@ -533,7 +524,7 @@ Budget</string>
                                                     </constraints>
                                                     <color key="textColor" name="Text Colors"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ec-Go-D7l">
                                                     <rect key="frame" x="8" y="11.5" width="120" height="21"/>
@@ -568,7 +559,7 @@ Budget</string>
                                                     </constraints>
                                                     <color key="textColor" name="Text Colors"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2an-57-daV">
                                                     <rect key="frame" x="8" y="11.5" width="120" height="21"/>
