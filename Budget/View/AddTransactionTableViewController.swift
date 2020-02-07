@@ -9,29 +9,85 @@
 import UIKit
 
 class AddTransactionTableViewController: UITableViewController {
+    
+    @IBOutlet var transactionDatePicker: UIDatePicker!
+    @IBOutlet var datePickerLabel: UILabel!
+    @IBOutlet var notesTextView: UITextView!
+    
+    var dateEditing = false {
+        didSet {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        }
+    }
+    
+    var datePickerHeight = 0
+    var editingDatePicker = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //formatting for date label box
+        datePickerLabel!.layer.borderWidth = 1
+        datePickerLabel!.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        datePickerLabel!.layer.cornerRadius = 5.0
+        //formatting for notes box
+        notesTextView!.layer.borderWidth = 1
+        notesTextView!.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        notesTextView!.layer.cornerRadius = 5.0
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+//    @IBAction func datePickerExpanderButton(_ sender: Any) {
+//        datePickerHeight = 174
+//    }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath == IndexPath(row: 4, section: 0){
+            if dateEditing == true {
+                return transactionDatePicker.frame.height
+            } else {
+                return 0
+            }
+//            if editingDatePicker == true {
+//                editingDatePicker = false
+//                return transactionDatePicker.frame.height
+//            } else {
+//                editingDatePicker = true
+//                return CGFloat(datePickerHeight)
+//            }
+        } else if indexPath == IndexPath(row: 0, section: 0){
+            return CGFloat(141.0)
+        } else if indexPath == IndexPath(row: 5, section: 0){
+            return CGFloat(174)
+        } else {
+            return UITableView.automaticDimension
+        }
     }
+
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 6
     }
 
+     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath == IndexPath(row: 3, section: 0) {
+            dateEditing = !dateEditing
+            datePickerLabel.text = stringForDate(date: transactionDatePicker.date)
+        }
+
+    }
+    
+    func stringForDate(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
