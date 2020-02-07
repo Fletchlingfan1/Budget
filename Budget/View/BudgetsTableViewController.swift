@@ -11,18 +11,20 @@ import CoreData
 
 class BudgetsTableViewController: UITableViewController {
 
-    @IBOutlet var accountTotalTextField: UITextField!
-   
+    @IBOutlet var accountTotalLabel: UILabel!
+
     var budgets: [Budget] {
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
         let fetchBudgets = NSFetchRequest<Budget>(entityName: "Budget")
         return try! delegate.persistentContainer.viewContext.fetch(fetchBudgets)
     }
+    
+    var currencyFormatter = NumberFormatter()
         
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        currencyFormatter.numberStyle = .currency
         
         // This makes the Edit button work.
         navigationItem.leftBarButtonItem = editButtonItem
@@ -30,8 +32,19 @@ class BudgetsTableViewController: UITableViewController {
         //        tableView.reloadData()
     }
     
+    
+    func calculateSum() {
+        
+        var sum = 0.0
+        for budget in budgets {
+            sum += budget.budgetAmount
+        }
+        accountTotalLabel.text = currencyFormatter.string(for: sum)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        calculateSum()
     }
 
     // MARK: - Table view data source
@@ -46,8 +59,10 @@ class BudgetsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "budgetCell", for: indexPath) as! BudgetTableViewCell
 
         // Configure the cell...
-        let budgets = self.budgets[indexPath.row]
-        cell.update(with: budgets)
+        let budget = self.budgets[indexPath.row]
+        cell.budgetNameLabel.text = budget.budgetName
+        cell.budgetAmountLabel.text = currencyFormatter.string(for: budget.budgetAmount)
+        
         return cell
     }
 

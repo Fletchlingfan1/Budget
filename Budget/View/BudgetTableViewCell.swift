@@ -9,26 +9,8 @@
 import UIKit
 
 class BudgetTableViewCell: UITableViewCell {
-
+    
     @IBOutlet var budgetNameLabel: UILabel!
     @IBOutlet var budgetAmountLabel: UILabel!
-    
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    func update(with budget: Budget) {
-        budgetNameLabel.text = budget.budgetName
-        budgetAmountLabel.text = "\(budget.budgetAmount)"
-    }
 
 }
