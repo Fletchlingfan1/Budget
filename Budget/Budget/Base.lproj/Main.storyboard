@@ -26,7 +26,7 @@
                                     <color key="textColor" name="Text Colors"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="233" translatesAutoresizingMaskIntoConstraints="NO" id="OzP-kV-86l">
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OzP-kV-86l">
                                     <rect key="frame" x="20" y="115.5" width="374" height="21.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acu-nh-PUF">
@@ -39,10 +39,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIF-zu-dfM">
-                                            <rect key="frame" x="281" y="0.0" width="93" height="21.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="93" id="TNz-Fc-ia3"/>
-                                            </constraints>
+                                            <rect key="frame" x="48" y="0.0" width="326" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" name="Text Colors"/>
                                             <nil key="highlightedColor"/>
