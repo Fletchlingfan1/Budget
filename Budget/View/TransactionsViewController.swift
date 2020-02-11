@@ -10,16 +10,29 @@ import UIKit
 
 class TransactionsViewController: UIViewController {
     
-    @IBOutlet var budgetNameTextField: UITextField!
-    @IBOutlet var budgetAmountTextField: UITextField!
+    @IBOutlet weak var budgetNameLabel: UILabel!
+    @IBOutlet weak var budgetTotalLabel: UILabel!
     
-    
+    var budgetName: String?
+    var budgetTotal: Double?
+    var currencyFormater = NumberFormatter()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        currencyFormater.numberStyle = .currency
+        
+        if let budgetNamePassed = budgetName {
+            budgetNameLabel.text = budgetNamePassed
+        }
+        
+        if let budgetTotalPassed = budgetTotal {
+            budgetTotalLabel.text = currencyFormater.string(for: budgetTotalPassed)
+        }
     }
     
+
 
     /*
     // MARK: - Navigation

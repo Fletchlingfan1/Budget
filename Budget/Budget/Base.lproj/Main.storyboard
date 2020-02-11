@@ -109,7 +109,7 @@
                                 <connections>
                                     <outlet property="budgetAmountLabel" destination="jlw-oa-VlC" id="Xwc-XW-2DV"/>
                                     <outlet property="budgetNameLabel" destination="dVB-oM-ZWC" id="xRc-KF-JMW"/>
-                                    <segue destination="SFn-8m-vTd" kind="show" id="rQ3-ee-num"/>
+                                    <segue destination="SFn-8m-vTd" kind="show" identifier="toTransactions" id="rQ3-ee-num"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -236,6 +236,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="budgetNameLabel" destination="SU6-xa-flE" id="KyC-kB-fzD"/>
+                        <outlet property="budgetTotalLabel" destination="93N-qX-5hH" id="ZDj-vX-eCS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxV-Nc-rzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
