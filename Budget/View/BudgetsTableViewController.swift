@@ -111,6 +111,18 @@ class BudgetsTableViewController: UITableViewController {
             addBudgetVC.loadViewIfNeeded()
             addBudgetVC.budget = budget
         }
+        
+        /* if the segue is "toTransactions", then:
+         * a) get the new view Controller
+         * b) get the values of the row that was tapped
+         * c) pass the budget name of the row that was tapped to the new view controller
+         */
+        if segue.identifier == "toTransactions" {
+            guard let addBudgetVC = segue.destination as? TransactionsViewController, let selectedRow = tableView.indexPathForSelectedRow?.row else {return}
+            let budget = self.budgets[selectedRow]
+            addBudgetVC.budgetName = budget.budgetName
+            addBudgetVC.budgetTotal = budget.budgetAmount
+        }
     }
     
 }
