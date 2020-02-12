@@ -246,6 +246,7 @@
                     <connections>
                         <outlet property="budgetNameLabel" destination="SU6-xa-flE" id="KyC-kB-fzD"/>
                         <outlet property="budgetTotalLabel" destination="93N-qX-5hH" id="ZDj-vX-eCS"/>
+                        <outlet property="transactionTableView" destination="yru-gn-t40" id="uUE-Fj-Xi1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxV-Nc-rzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
