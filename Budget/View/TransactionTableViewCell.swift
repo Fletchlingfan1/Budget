@@ -10,9 +10,9 @@ import UIKit
 
 class TransactionTableViewCell: UITableViewCell {
     
-    @IBOutlet var transactionNameTextField: UITextField!
-    @IBOutlet var transactionDateTextField: UITextField!
-    @IBOutlet var transactionAmountTextField: UITextField!
+    @IBOutlet var transactionNameTextField: UILabel!
+    @IBOutlet var transactionDateTextField: UILabel!
+    @IBOutlet var transactionAmountTextField: UILabel!
     
     
 
@@ -26,4 +26,11 @@ class TransactionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func update(with transaction: Transactions) {
+        
+        transactionNameTextField.text = transaction.transactionName
+        transactionDateTextField.text = BudgetController.sharedController.stringForDate(date: transaction.transactionDate)
+        transactionAmountTextField.text = "\(transaction.transactionAmount)"
+    }
+    
 }
