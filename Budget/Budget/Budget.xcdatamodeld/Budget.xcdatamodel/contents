@@ -3,20 +3,20 @@
     <entity name="Account" representedClassName="Account" syncable="YES" codeGenerationType="class">
         <attribute name="accountAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="accountName" optional="YES" attributeType="String"/>
-        <relationship name="budgetToAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Budget" inverseName="budgetToAccount" inverseEntity="Budget"/>
+        <relationship name="budgets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Budget" inverseName="account" inverseEntity="Budget"/>
     </entity>
     <entity name="Budget" representedClassName="Budget" syncable="YES" codeGenerationType="class">
         <attribute name="budgetAmount" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="budgetName" optional="YES" attributeType="String"/>
-        <relationship name="budgetToAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="budgetToAccount" inverseEntity="Account"/>
-        <relationship name="transToBudget" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Transactions" inverseName="transToBudget" inverseEntity="Transactions"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="budgets" inverseEntity="Account"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transactions" inverseName="budget" inverseEntity="Transactions"/>
     </entity>
     <entity name="Transactions" representedClassName="Transactions" syncable="YES" codeGenerationType="class">
         <attribute name="transactionAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="transactionDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="transactionName" optional="YES" attributeType="String"/>
         <attribute name="transactionNotes" optional="YES" attributeType="String"/>
-        <relationship name="transToBudget" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Budget" inverseName="transToBudget" inverseEntity="Budget"/>
+        <relationship name="budget" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Budget" inverseName="transactions" inverseEntity="Budget"/>
     </entity>
     <elements>
         <element name="Account" positionX="-54" positionY="-9" width="128" height="88"/>

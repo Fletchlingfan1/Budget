@@ -13,6 +13,9 @@ class AddTransactionTableViewController: UITableViewController {
     @IBOutlet var transactionDatePicker: UIDatePicker!
     @IBOutlet var datePickerLabel: UILabel!
     @IBOutlet var notesTextView: UITextView!
+    @IBOutlet var transactionName: UITextField!
+    @IBOutlet var transactionAmount: UITextField!
+    @IBOutlet var transactionNotes: UITextView!
     
     var dateEditing = false {
         didSet {
@@ -23,6 +26,8 @@ class AddTransactionTableViewController: UITableViewController {
     
     var datePickerHeight = 0
     var editingDatePicker = false
+    var transaction: Transactions?
+    var currentBudget: Budget?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +42,24 @@ class AddTransactionTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+
+    @IBAction func transactionSaveButton(_ sender: Any) {
+        guard let name = transactionName.text, let amount = transactionAmount.text, let date: Date = transactionDatePicker.date, let notes = transactionNotes.text, let amountDouble = Double(amount), let currentBudget = currentBudget else {return}
+        
+        if let transaction = transaction {
+            //edit transaction
+            transaction.transactionName = name
+            transaction.transactionAmount = amountDouble
+            transaction.transactionDate = date
+            transaction.transactionNotes = notes
+            BudgetController.sharedController.saveBudget()
+        } else {
+            //new transaction
+            BudgetController.sharedController.addTransaction(transactionAmount: amountDouble, transactionDate: date, transactionName: name, transactionNotes: notes, budget: currentBudget)
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
     
-//    @IBAction func datePickerExpanderButton(_ sender: Any) {
-//        datePickerHeight = 174
-//    }
     
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -76,17 +95,12 @@ class AddTransactionTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath == IndexPath(row: 3, section: 0) {
             dateEditing = !dateEditing
-            datePickerLabel.text = stringForDate(date: transactionDatePicker.date)
+            datePickerLabel.text = BudgetController.sharedController.stringForDate(date: transactionDatePicker.date)
         }
 
     }
     
-    func stringForDate(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
-        return formatter.string(from: date)
-    }
+
     
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
