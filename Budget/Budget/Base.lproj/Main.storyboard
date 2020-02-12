@@ -146,7 +146,7 @@
                                 <rect key="frame" x="0.0" y="149.5" width="414" height="669.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XrP-VG-Icr" customClass="TransactionTableViewCell" customModule="Budget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionCell" id="XrP-VG-Icr" customClass="TransactionTableViewCell" customModule="Budget" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XrP-VG-Icr" id="fUn-jE-cyo">
@@ -189,10 +189,17 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="transactionAmountTextField" destination="J5d-Sv-n1M" id="3ra-oW-NMa"/>
+                                            <outlet property="transactionDateTextField" destination="qvh-Ua-723" id="NpE-Gt-8A7"/>
+                                            <outlet property="transactionNameTextField" destination="9gv-ta-fPE" id="dJs-Ba-IYn"/>
                                             <segue destination="eOm-u2-X9U" kind="show" id="ym1-nT-F5p"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="SFn-8m-vTd" id="8MM-aC-eSJ"/>
+                                    <outlet property="delegate" destination="SFn-8m-vTd" id="Ync-28-jjt"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SU6-xa-flE">
                                 <rect key="frame" x="20" y="96" width="223" height="45.5"/>
@@ -232,7 +239,7 @@
                     <navigationItem key="navigationItem" title="Transactions" id="0wp-Do-q9c">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="ROz-Ja-Asy">
                             <connections>
-                                <segue destination="eOm-u2-X9U" kind="show" id="mCi-AG-fF7"/>
+                                <segue destination="eOm-u2-X9U" kind="show" identifier="addTransaction" id="mCi-AG-fF7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -438,12 +445,19 @@ Transaction</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="1WQ-JR-JUD">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="UUK-YU-aHj"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="UUK-YU-aHj">
+                            <connections>
+                                <action selector="transactionSaveButton:" destination="eOm-u2-X9U" id="mdf-eg-Xff"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="datePickerLabel" destination="dKP-pe-gr0" id="jnN-Wt-8Ko"/>
                         <outlet property="notesTextView" destination="Wfl-kv-Tk4" id="Y1p-HV-Idi"/>
+                        <outlet property="transactionAmount" destination="cMG-nJ-x3j" id="fzm-Yo-Gnn"/>
                         <outlet property="transactionDatePicker" destination="Pqc-8i-imF" id="mRR-57-gO7"/>
+                        <outlet property="transactionName" destination="TOZ-Dy-mS7" id="zZt-dg-aDW"/>
+                        <outlet property="transactionNotes" destination="Wfl-kv-Tk4" id="07w-23-geZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIX-Qh-en0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -621,6 +635,6 @@ Budget</string>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ym1-nT-F5p"/>
+        <segue reference="mCi-AG-fF7"/>
     </inferredMetricsTieBreakers>
 </document>

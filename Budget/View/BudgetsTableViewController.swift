@@ -52,7 +52,7 @@ class BudgetsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return budgets.count
-                }
+    }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -110,6 +110,11 @@ class BudgetsTableViewController: UITableViewController {
             //and give the destination view controller the budget you just tapped
             addBudgetVC.loadViewIfNeeded()
             addBudgetVC.budget = budget
+        } else if segue.identifier == "toTransactions" {
+            guard let transactionsVC = segue.destination as? TransactionsViewController, let selectedRow = tableView.indexPathForSelectedRow?.row else {return}
+            let budget = BudgetController.sharedController.budget[selectedRow]
+            transactionsVC.selectedBudget = budget
+            
         }
         
         /* if the segue is "toTransactions", then:
