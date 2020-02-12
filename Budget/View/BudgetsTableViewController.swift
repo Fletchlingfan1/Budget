@@ -11,25 +11,40 @@ import CoreData
 
 class BudgetsTableViewController: UITableViewController {
 
-    @IBOutlet var accountTotalTextField: UITextField!
-   
+    @IBOutlet var accountTotalLabel: UILabel!
+
     var budgets: [Budget] {
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
         let fetchBudgets = NSFetchRequest<Budget>(entityName: "Budget")
         return try! delegate.persistentContainer.viewContext.fetch(fetchBudgets)
     }
+    
+    var currencyFormatter = NumberFormatter()
         
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-//        tableView.reloadData()
+        
+        currencyFormatter.numberStyle = .currency
+        
+        // This makes the Edit button work.
+        navigationItem.leftBarButtonItem = editButtonItem
+        
+        //        tableView.reloadData()
+    }
+    
+    
+    func calculateSum() {
+        
+        var sum = 0.0
+        for budget in budgets {
+            sum += budget.budgetAmount
+        }
+        accountTotalLabel.text = currencyFormatter.string(for: sum)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        calculateSum()
     }
 
     // MARK: - Table view data source
@@ -44,8 +59,10 @@ class BudgetsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "budgetCell", for: indexPath) as! BudgetTableViewCell
 
         // Configure the cell...
-        let budgets = self.budgets[indexPath.row]
-        cell.update(with: budgets)
+        let budget = self.budgets[indexPath.row]
+        cell.budgetNameLabel.text = budget.budgetName
+        cell.budgetAmountLabel.text = currencyFormatter.string(for: budget.budgetAmount)
+        
         return cell
     }
 
@@ -58,9 +75,12 @@ class BudgetsTableViewController: UITableViewController {
             let budget = BudgetController.sharedController.budget[indexPath.row]
             BudgetController.sharedController.deleteBudget(budget: budget)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            calculateSum()
         }
     }
-    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 
     /*
     // Override to support rearranging the table view.
@@ -95,6 +115,18 @@ class BudgetsTableViewController: UITableViewController {
             let budget = BudgetController.sharedController.budget[selectedRow]
             transactionsVC.selectedBudget = budget
             
+        }
+        
+        /* if the segue is "toTransactions", then:
+         * a) get the new view Controller
+         * b) get the values of the row that was tapped
+         * c) pass the budget name of the row that was tapped to the new view controller
+         */
+        if segue.identifier == "toTransactions" {
+            guard let addBudgetVC = segue.destination as? TransactionsViewController, let selectedRow = tableView.indexPathForSelectedRow?.row else {return}
+            let budget = self.budgets[selectedRow]
+            addBudgetVC.budgetName = budget.budgetName
+            addBudgetVC.budgetTotal = budget.budgetAmount
         }
     }
     

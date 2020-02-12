@@ -12,19 +12,30 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
 
     
     
-    @IBOutlet var budgetNameTextField: UITextField!
-    @IBOutlet var budgetAmountTextField: UITextField!
-    @IBOutlet var tableView: UITableView!
+
+    @IBOutlet weak var budgetNameLabel: UILabel!
+    @IBOutlet weak var budgetTotalLabel: UILabel!
     
+    var budgetName: String?
+    var budgetTotal: Double?
+    var currencyFormater = NumberFormatter()
     var selectedBudget: Budget?
     var sortedTransactions: [Transactions] {
         guard let transactions = selectedBudget?.transactions as? Set<Transactions> else { return [] }
         return transactions.sorted(by: { $0.transactionDate ?? Date() > $1.transactionDate ?? Date() })
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        currencyFormater.numberStyle = .currency
+        
+        if let budgetNamePassed = budgetName {
+            budgetNameLabel.text = budgetNamePassed
+        }
+        
+        if let budgetTotalPassed = budgetTotal {
+            budgetTotalLabel.text = currencyFormater.string(for: budgetTotalPassed)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,8 +64,7 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
         return cell
         
     }
-    
-    
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
