@@ -66,7 +66,24 @@ class BudgetsTableViewController: UITableViewController {
         return cell
     }
 
-
+    @IBAction func addButtonPressed(_ sender: Any) {
+        let ac = UIAlertController(title: "Add new budget", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+        ac.addTextField()
+        
+        let submitAction = UIAlertAction(title: "Add", style: .default) {
+            [weak self, weak ac] _ in
+            guard let answer = ac?.textFields?[0].text else { return }
+            self?.newBudget(answer)
+        }
+        
+        ac.addAction(submitAction)
+        present(ac, animated: true)
+    }
+    
+    func newBudget(_ answer: String) {
+        
+    }
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -81,6 +98,8 @@ class BudgetsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
+    
 
     /*
     // Override to support rearranging the table view.
