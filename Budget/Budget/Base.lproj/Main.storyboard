@@ -122,7 +122,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="twF-tR-Teo"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="o7c-Q0-ifu">
                             <connections>
-                                <segue destination="rKW-gM-IW6" kind="show" id="Dz9-Pp-JsP"/>
+                                <action selector="addButtonPressed:" destination="c4o-YK-Y7y" id="Bvo-ms-743"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
