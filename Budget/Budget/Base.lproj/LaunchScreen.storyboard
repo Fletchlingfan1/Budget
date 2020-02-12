@@ -16,16 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="seE-bK-m7u">
-                                <rect key="frame" x="32" y="273" width="350" height="350"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNr-VT-AzO">
+                                <rect key="frame" x="112.00000000000001" y="529" width="191.33333333333337" height="56.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <color key="textColor" name="Button Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="FSu-Bf-SAX">
+                                <rect key="frame" x="20" y="136" width="374" height="385"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="F6h-QS-mbX"/>
+                                    <constraint firstAttribute="height" constant="385" id="nfg-83-FsK"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" name="Theme Color"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="seE-bK-m7u" secondAttribute="bottom" constant="239" id="Be8-Rm-MMf"/>
-                            <constraint firstItem="seE-bK-m7u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="VHx-ST-J9y"/>
-                            <constraint firstItem="seE-bK-m7u" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="229" id="hTN-BN-qjb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="seE-bK-m7u" secondAttribute="trailing" constant="32" id="yUY-rW-yWu"/>
+                            <constraint firstItem="nNr-VT-AzO" firstAttribute="top" secondItem="FSu-Bf-SAX" secondAttribute="bottom" constant="8" id="Aws-HJ-vNV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nNr-VT-AzO" secondAttribute="trailing" constant="110.67" id="Oz6-Sg-Vg0"/>
+                            <constraint firstItem="FSu-Bf-SAX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="R9O-ha-XlP"/>
+                            <constraint firstItem="FSu-Bf-SAX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="92" id="Zpn-2a-m6i"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nNr-VT-AzO" secondAttribute="bottom" constant="276.67000000000002" id="qxr-CK-gaV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FSu-Bf-SAX" secondAttribute="trailing" constant="20" id="rmS-xa-u4q"/>
+                            <constraint firstItem="nNr-VT-AzO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="vV1-IC-rxJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,6 +50,9 @@
     </scenes>
     <resources>
         <image name="Logo" width="512" height="512"/>
+        <namedColor name="Button Color">
+            <color red="0.16078431372549021" green="0.63137254901960782" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Theme Color">
             <color red="0.13333333333333333" green="0.15686274509803921" blue="0.19215686274509805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
