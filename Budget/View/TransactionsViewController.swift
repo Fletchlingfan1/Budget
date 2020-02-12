@@ -9,10 +9,11 @@
 import UIKit
 
 class TransactionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
     
     
-
+    
+    
+    @IBOutlet var transactionTableView: UITableView!
     @IBOutlet weak var budgetNameLabel: UILabel!
     @IBOutlet weak var budgetTotalLabel: UILabel!
     
@@ -23,7 +24,9 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
     var sortedTransactions: [Transactions] {
         guard let transactions = selectedBudget?.transactions as? Set<Transactions> else { return [] }
         return transactions.sorted(by: { $0.transactionDate ?? Date() > $1.transactionDate ?? Date() })
-
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,21 +42,21 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+        transactionTableView.reloadData()
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let currentTransactions = selectedBudget?.transactions else { return 0 }
         return currentTransactions.count
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            if editingStyle == .delete {
-                let selectedTransaction = sortedTransactions[indexPath.row]
-                BudgetController.sharedController.deleteTransaction(transaction: selectedTransaction)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
+        if editingStyle == .delete {
+            let selectedTransaction = sortedTransactions[indexPath.row]
+            BudgetController.sharedController.deleteTransaction(transaction: selectedTransaction)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "transactionCell", for: indexPath) as! TransactionTableViewCell
@@ -64,9 +67,9 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
         return cell
         
     }
-
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addTransaction" {
@@ -75,6 +78,6 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
             
         }
     }
-    
-
 }
+
+
