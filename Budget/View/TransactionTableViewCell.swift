@@ -31,6 +31,5 @@ class TransactionTableViewCell: UITableViewCell {
         transactionNameTextField.text = transaction.transactionName
         transactionDateTextField.text = BudgetController.sharedController.stringForDate(date: transaction.transactionDate)
         transactionAmountTextField.text = "\(transaction.transactionAmount)"
-    }
-    
+    }    
 }
