@@ -75,7 +75,15 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
         if segue.identifier == "addTransaction" {
             guard let addTransactionsVC = segue.destination as? AddTransactionTableViewController else {return}
             addTransactionsVC.currentBudget = selectedBudget
+        } else if segue.identifier == "editTransaction" {
+            guard let editTransactionVC = segue.destination as? AddTransactionTableViewController, let selectedRow = transactionTableView.indexPathForSelectedRow?.row else {return}
+            let transaction = self.sortedTransactions[selectedRow]
+            editTransactionVC.currentBudget = selectedBudget
+            editTransactionVC.transaction = transaction
+//            editTransactionVC.transactionAmount.text = "\(transaction.transactionAmount)"
+//            editTransactionVC.datePickerLabel.text = BudgetController.sharedController.stringForDate(date: transaction.transactionDate)
             
+
         }
     }
 }

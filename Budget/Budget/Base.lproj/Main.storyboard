@@ -192,7 +192,7 @@
                                             <outlet property="transactionAmountTextField" destination="J5d-Sv-n1M" id="3ra-oW-NMa"/>
                                             <outlet property="transactionDateTextField" destination="qvh-Ua-723" id="NpE-Gt-8A7"/>
                                             <outlet property="transactionNameTextField" destination="9gv-ta-fPE" id="dJs-Ba-IYn"/>
-                                            <segue destination="eOm-u2-X9U" kind="show" id="ym1-nT-F5p"/>
+                                            <segue destination="eOm-u2-X9U" kind="show" identifier="editTransaction" id="ym1-nT-F5p"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -636,6 +636,6 @@ Budget</string>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mCi-AG-fF7"/>
+        <segue reference="ym1-nT-F5p"/>
     </inferredMetricsTieBreakers>
 </document>
