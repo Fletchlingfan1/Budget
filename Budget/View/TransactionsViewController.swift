@@ -21,6 +21,8 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
     var budgetTotal: Double?
     var currencyFormater = NumberFormatter()
     var selectedBudget: Budget?
+    
+    
     var sortedTransactions: [Transactions] {
         guard let transactions = selectedBudget?.transactions as? Set<Transactions> else { return [] }
         return transactions.sorted(by: { $0.transactionDate ?? Date() > $1.transactionDate ?? Date() })
@@ -39,10 +41,12 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
         if let budgetTotalPassed = budgetTotal {
             budgetTotalLabel.text = currencyFormater.string(for: budgetTotalPassed)
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         transactionTableView.reloadData()
+        negativeTransactionSum()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,6 +59,7 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
             let selectedTransaction = sortedTransactions[indexPath.row]
             BudgetController.sharedController.deleteTransaction(transaction: selectedTransaction)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            negativeTransactionSum()
         }
     }
     
@@ -63,7 +68,9 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
         
         //Configure the cell...
         let transactions = self.sortedTransactions[indexPath.row]
-        cell.update(with: transactions)
+        cell.transactionAmountTextField.text = currencyFormater.string(for: transactions.transactionAmount)
+        cell.transactionDateTextField.text = transactions.transactionDate?.toString(style: .short)
+        cell.transactionNameTextField.text = transactions.transactionName
         return cell
         
     }
@@ -86,6 +93,23 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
 
         }
     }
+    
+    func negativeTransactionSum(){
+        guard var sum = selectedBudget?.budgetAmount else {return}
+        for transaction in sortedTransactions {
+            sum -= transaction.transactionAmount
+        }
+        budgetTotalLabel.text = currencyFormater.string(for: sum)
+    }
 }
+
+extension Date{
+    func toString(style:DateFormatter.Style) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = style
+        return dateFormatter.string(from: self)
+    }
+}
+
 
 
