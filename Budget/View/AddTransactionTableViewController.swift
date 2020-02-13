@@ -39,12 +39,31 @@ class AddTransactionTableViewController: UITableViewController {
         notesTextView!.layer.borderWidth = 1
         notesTextView!.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         notesTextView!.layer.cornerRadius = 5.0
+        
+        guard let selectedTransaction = transaction else {return}
+        transactionAmount.text = "\(selectedTransaction.transactionAmount)"
+        transactionName.text = selectedTransaction.transactionName
+        transactionNotes.text = selectedTransaction.transactionNotes
+        
+        guard let setTransactionDate = selectedTransaction.transactionDate else {return}
+        
+        datePickerLabel.text = BudgetController.sharedController.stringForDate(date: setTransactionDate)
+        
+        transactionDatePicker.date = setTransactionDate
     }
 
     // MARK: - Table view data source
 
     @IBAction func transactionSaveButton(_ sender: Any) {
-        guard let name = transactionName.text, let amount = transactionAmount.text, let date: Date = transactionDatePicker.date, let notes = transactionNotes.text, let amountDouble = Double(amount), let currentBudget = currentBudget else {return}
+        guard let name = transactionName.text,
+            let amount = transactionAmount.text,
+            let date: Date = transactionDatePicker.date,
+            let notes = transactionNotes.text,
+            let amountDouble = Double(amount),
+            let currentBudget = currentBudget else {
+            return
+            
+        }
         
         if let transaction = transaction {
             //edit transaction
