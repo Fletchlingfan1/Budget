@@ -70,23 +70,29 @@ class BudgetsTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Add new budget", message: nil, preferredStyle: .alert)
         
         let add = UIAlertAction(title: "Add", style: .default) { (alertAction) in
-            let budgetNameTextField = alert.textFields! [0] as UITextField
-            let budgetAmountTextField = alert.textFields! [1] as UITextField
+            let budgetName = alert.textFields! [0] as UITextField
+            let budgetAmount = alert.textFields! [1] as UITextField
             
-            if budgetNameTextField.text == "" {
+            if budgetName.text == "" {
                 let alertController = UIAlertController(title: "You need a Name and Total", message: nil, preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
 
                 self.present(alertController, animated: true, completion: nil)
                 
-            } else if budgetAmountTextField.text == "" {
+            } else if budgetAmount.text == "" {
                                 let alertController = UIAlertController(title: "You need a Name and Total", message: nil, preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
 
                 self.present(alertController, animated: true, completion: nil)
                 
             } else {
-                print("Save")
+                guard let name = budgetName.text,
+                    let amount = budgetAmount.text,
+                    let amountDouble = Double(amount) else {return}
+                
+                BudgetController.sharedController.addBudget(budgetName: name, budgetAmount: amountDouble)
+                self.tableView.reloadData()
+                self.calculateSum()
             }
         }
         
