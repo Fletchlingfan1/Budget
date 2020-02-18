@@ -41,7 +41,6 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
         if let budgetTotalPassed = budgetTotal {
             budgetTotalLabel.text = currencyFormater.string(for: budgetTotalPassed)
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,7 +89,7 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
 //            editTransactionVC.transactionAmount.text = "\(transaction.transactionAmount)"
 //            editTransactionVC.datePickerLabel.text = BudgetController.sharedController.stringForDate(date: transaction.transactionDate)
             
-
+            
         }
     }
     
@@ -100,6 +99,7 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
             sum -= transaction.transactionAmount
         }
         budgetTotalLabel.text = currencyFormater.string(for: sum)
+        budgetTotalLabel.textColor = UIColor(named: sum < 0 ? "Negative" : "Positive")
     }
 }
 
