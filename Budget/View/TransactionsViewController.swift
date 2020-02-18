@@ -49,7 +49,7 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let currentTransactions = selectedBudget?.transactions else { return 0 }
+         guard let currentTransactions = selectedBudget?.transactions else { return 0 }
         return currentTransactions.count
     }
     

@@ -26,11 +26,11 @@
                                     <color key="textColor" name="Text Colors"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OzP-kV-86l">
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="OzP-kV-86l">
                                     <rect key="frame" x="20" y="115.5" width="374" height="21.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acu-nh-PUF">
-                                            <rect key="frame" x="0.0" y="0.0" width="48" height="21.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="21.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="48" id="stg-9W-vJj"/>
                                             </constraints>
@@ -39,7 +39,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIF-zu-dfM">
-                                            <rect key="frame" x="48" y="0.0" width="326" height="21.5"/>
+                                            <rect key="frame" x="187" y="0.0" width="187" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" name="Text Colors"/>
                                             <nil key="highlightedColor"/>
@@ -53,13 +53,13 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IhK-Vn-W5H">
                                     <rect key="frame" x="91.5" y="20" width="231.5" height="21.5"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Total: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4Z-DA-pur">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Account Total: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4Z-DA-pur">
                                             <rect key="frame" x="0.0" y="0.0" width="120.5" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" name="Text Colors"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ts8-Em-uPH">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Account Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ts8-Em-uPH">
                                             <rect key="frame" x="120.5" y="0.0" width="111" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" name="Positive"/>
@@ -86,13 +86,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-oM-ZWC">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Budget Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-oM-ZWC">
                                             <rect key="frame" x="20" y="8.5" width="130.5" height="26.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" name="Text Colors"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlw-oa-VlC">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Budget Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlw-oa-VlC">
                                             <rect key="frame" x="285" y="10" width="109" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" name="Positive"/>
@@ -103,6 +103,7 @@
                                         <constraint firstItem="jlw-oa-VlC" firstAttribute="centerY" secondItem="CTj-1m-QVU" secondAttribute="centerY" id="DA2-rb-UfJ"/>
                                         <constraint firstItem="dVB-oM-ZWC" firstAttribute="centerY" secondItem="CTj-1m-QVU" secondAttribute="centerY" id="DcJ-w3-AxQ"/>
                                         <constraint firstAttribute="trailing" secondItem="jlw-oa-VlC" secondAttribute="trailing" constant="20" id="QSS-c3-Ham"/>
+                                        <constraint firstItem="jlw-oa-VlC" firstAttribute="leading" secondItem="dVB-oM-ZWC" secondAttribute="trailing" constant="20" id="tRz-7M-0wr"/>
                                         <constraint firstItem="dVB-oM-ZWC" firstAttribute="leading" secondItem="CTj-1m-QVU" secondAttribute="leading" constant="20" id="uMx-Yk-7Oc"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -123,6 +124,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="o7c-Q0-ifu">
                             <connections>
                                 <action selector="addButtonPressed:" destination="c4o-YK-Y7y" id="Bvo-ms-743"/>
+                                <segue destination="rKW-gM-IW6" kind="show" identifier="editBudget" id="yah-7d-JTC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

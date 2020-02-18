@@ -67,18 +67,52 @@ class BudgetsTableViewController: UITableViewController {
     }
 
     @IBAction func addButtonPressed(_ sender: Any) {
-        let ac = UIAlertController(title: "Add new budget", message: nil, preferredStyle: .alert)
-        ac.addTextField()
-        ac.addTextField()
+        let alert = UIAlertController(title: "Add new budget", message: nil, preferredStyle: .alert)
         
-        let submitAction = UIAlertAction(title: "Add", style: .default) {
-            [weak self, weak ac] _ in
-            guard let answer = ac?.textFields?[0].text else { return }
-            self?.newBudget(answer)
+        let add = UIAlertAction(title: "Add", style: .default) { (alertAction) in
+            let budgetName = alert.textFields! [0] as UITextField
+            let budgetAmount = alert.textFields! [1] as UITextField
+            
+            if budgetName.text == "" {
+                let alertController = UIAlertController(title: "You need a Name and Total", message: nil, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else if budgetAmount.text == "" {
+                                let alertController = UIAlertController(title: "You need a Name and Total", message: nil, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else {
+                guard let name = budgetName.text,
+                    let amount = budgetAmount.text,
+                    let amountDouble = Double(amount) else {return}
+                
+                BudgetController.sharedController.addBudget(budgetName: name, budgetAmount: amountDouble)
+                self.tableView.reloadData()
+                self.calculateSum()
+            }
         }
         
-        ac.addAction(submitAction)
-        present(ac, animated: true)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Name"
+            textField.autocapitalizationType = .sentences
+        }
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Total"
+            textField.keyboardType = .decimalPad
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in }
+        alert.addAction(cancel)
+        
+        alert.addAction(add)
+        
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
     func newBudget(_ answer: String) {
