@@ -33,11 +33,19 @@ class AddTransactionTableViewController: UITableViewController {
         super.viewDidLoad()
         //formatting for date label box
         datePickerLabel!.layer.borderWidth = 1
-        datePickerLabel!.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         datePickerLabel!.layer.cornerRadius = 5.0
+        if traitCollection.userInterfaceStyle == .dark {
+            datePickerLabel!.layer.borderColor = #colorLiteral(red: 0.199973762, green: 0.2000150383, blue: 0.1999711692, alpha: 1)
+        } else if traitCollection.userInterfaceStyle == .light {
+            datePickerLabel!.layer.borderColor = #colorLiteral(red: 0.8029057384, green: 0.8030220866, blue: 0.8028803468, alpha: 1)
+        }
         //formatting for notes box
+        if traitCollection.userInterfaceStyle == .dark {
+            notesTextView!.layer.borderColor = #colorLiteral(red: 0.199973762, green: 0.2000150383, blue: 0.1999711692, alpha: 1)
+        } else if traitCollection.userInterfaceStyle == .light {
+            notesTextView!.layer.borderColor = #colorLiteral(red: 0.8029057384, green: 0.8030220866, blue: 0.8028803468, alpha: 1)
+        }
         notesTextView!.layer.borderWidth = 1
-        notesTextView!.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         notesTextView!.layer.cornerRadius = 5.0
         
         guard let selectedTransaction = transaction else {return}
