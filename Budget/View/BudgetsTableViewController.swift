@@ -154,16 +154,7 @@ class BudgetsTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //detect the correct segue, the edit segue
-        if segue.identifier == "editBudget" {
-            
-            //if it's the edit budget segue then get the budget tapped and grab the view controller
-            guard let addBudgetVC = segue.destination as? AddBudgetTableViewController, let selectedRow = tableView.indexPathForSelectedRow?.row else {return}
-            let budget = BudgetController.sharedController.budget[selectedRow]
-            
-            //and give the destination view controller the budget you just tapped
-            addBudgetVC.loadViewIfNeeded()
-            addBudgetVC.budget = budget
-        } else if segue.identifier == "toTransactions" {
+        if segue.identifier == "toTransactions" {
             guard let transactionsVC = segue.destination as? TransactionsViewController, let selectedRow = tableView.indexPathForSelectedRow?.row else {return}
             let budget = BudgetController.sharedController.budget[selectedRow]
             transactionsVC.selectedBudget = budget
