@@ -21,7 +21,6 @@
 		7EEBB85223CE15A3000F8F62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EEBB85023CE15A3000F8F62 /* LaunchScreen.storyboard */; };
 		F32C669B23D8ABDA00D6AC17 /* BudgetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C669A23D8ABDA00D6AC17 /* BudgetsTableViewController.swift */; };
 		F32C669D23D8ACA400D6AC17 /* BudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32C669C23D8ACA400D6AC17 /* BudgetTableViewCell.swift */; };
-		F32D9B1C23DB466400A89993 /* AddBudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9B1B23DB466400A89993 /* AddBudgetTableViewController.swift */; };
 		F32D9B1E23DB46C600A89993 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9B1D23DB46C600A89993 /* TransactionsViewController.swift */; };
 		F32D9B2023DB472600A89993 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9B1F23DB472600A89993 /* TransactionTableViewCell.swift */; };
 		F32D9B2223DB47E600A89993 /* AddTransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32D9B2123DB47E600A89993 /* AddTransactionTableViewController.swift */; };
@@ -44,7 +43,6 @@
 		7EEBB85323CE15A3000F8F62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F32C669A23D8ABDA00D6AC17 /* BudgetsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsTableViewController.swift; sourceTree = "<group>"; };
 		F32C669C23D8ACA400D6AC17 /* BudgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewCell.swift; sourceTree = "<group>"; };
-		F32D9B1B23DB466400A89993 /* AddBudgetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetTableViewController.swift; sourceTree = "<group>"; };
 		F32D9B1D23DB46C600A89993 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		F32D9B1F23DB472600A89993 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		F32D9B2123DB47E600A89993 /* AddTransactionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionTableViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 			children = (
 				F32C669A23D8ABDA00D6AC17 /* BudgetsTableViewController.swift */,
 				F32C669C23D8ACA400D6AC17 /* BudgetTableViewCell.swift */,
-				F32D9B1B23DB466400A89993 /* AddBudgetTableViewController.swift */,
 				F32D9B1D23DB46C600A89993 /* TransactionsViewController.swift */,
 				F32D9B2123DB47E600A89993 /* AddTransactionTableViewController.swift */,
 				F32D9B1F23DB472600A89993 /* TransactionTableViewCell.swift */,
@@ -193,7 +190,6 @@
 				F32C669B23D8ABDA00D6AC17 /* BudgetsTableViewController.swift in Sources */,
 				F32C669D23D8ACA400D6AC17 /* BudgetTableViewCell.swift in Sources */,
 				F32D9B1E23DB46C600A89993 /* TransactionsViewController.swift in Sources */,
-				F32D9B1C23DB466400A89993 /* AddBudgetTableViewController.swift in Sources */,
 				7EEBB84323CE15A1000F8F62 /* AppDelegate.swift in Sources */,
 				7EEBB84D23CE15A1000F8F62 /* Budget.xcdatamodeld in Sources */,
 				F32D9B2023DB472600A89993 /* TransactionTableViewCell.swift in Sources */,
@@ -349,13 +345,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76LA7C6XRK;
+				DEVELOPMENT_TEAM = JWL5FJ33M8;
 				INFOPLIST_FILE = Budget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.djdev.Budget;
+				PRODUCT_BUNDLE_IDENTIFIER = djdev.Budget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -367,13 +363,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76LA7C6XRK;
+				DEVELOPMENT_TEAM = JWL5FJ33M8;
 				INFOPLIST_FILE = Budget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.djdev.Budget;
+				PRODUCT_BUNDLE_IDENTIFIER = djdev.Budget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
