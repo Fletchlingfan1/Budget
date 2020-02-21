@@ -53,13 +53,13 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IhK-Vn-W5H">
                                     <rect key="frame" x="91.5" y="20" width="231.5" height="21.5"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Total: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4Z-DA-pur">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Account Total: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4Z-DA-pur">
                                             <rect key="frame" x="0.0" y="0.0" width="120.5" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" name="Text Colors"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ts8-Em-uPH">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Account Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ts8-Em-uPH">
                                             <rect key="frame" x="120.5" y="0.0" width="111" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" name="Positive"/>
@@ -80,36 +80,48 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="budgetCell" id="MTs-la-vFZ" customClass="BudgetTableViewCell" customModule="Budget" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="173" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="173" width="414" height="44.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MTs-la-vFZ" id="CTj-1m-QVU">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Budget Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-oM-ZWC">
-                                            <rect key="frame" x="20" y="8.5" width="130.5" height="26.5"/>
+                                            <rect key="frame" x="20" y="6" width="130.5" height="27.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" name="Text Colors"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Transaction " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGJ-dG-gX5">
+                                            <rect key="frame" x="159" y="7" width="113" height="27.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <color key="textColor" name="Negative"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Budget Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlw-oa-VlC">
-                                            <rect key="frame" x="285" y="10" width="109" height="24"/>
+                                            <rect key="frame" x="280" y="7.5" width="122" height="24.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" name="Positive"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="jlw-oa-VlC" firstAttribute="centerY" secondItem="CTj-1m-QVU" secondAttribute="centerY" id="DA2-rb-UfJ"/>
-                                        <constraint firstItem="dVB-oM-ZWC" firstAttribute="centerY" secondItem="CTj-1m-QVU" secondAttribute="centerY" id="DcJ-w3-AxQ"/>
                                         <constraint firstAttribute="trailing" secondItem="jlw-oa-VlC" secondAttribute="trailing" constant="20" id="QSS-c3-Ham"/>
-                                        <constraint firstItem="jlw-oa-VlC" firstAttribute="leading" secondItem="dVB-oM-ZWC" secondAttribute="trailing" constant="20" id="tRz-7M-0wr"/>
+                                        <constraint firstItem="QGJ-dG-gX5" firstAttribute="top" secondItem="CTj-1m-QVU" secondAttribute="top" constant="7" id="T9j-va-7dN"/>
+                                        <constraint firstAttribute="bottom" secondItem="jlw-oa-VlC" secondAttribute="bottom" constant="12.5" id="XsL-Fs-T9x"/>
+                                        <constraint firstAttribute="bottom" secondItem="dVB-oM-ZWC" secondAttribute="bottom" constant="11" id="Yaq-CY-hwX"/>
+                                        <constraint firstItem="QGJ-dG-gX5" firstAttribute="leading" secondItem="dVB-oM-ZWC" secondAttribute="trailing" constant="8.5" id="aTa-Xb-XWw"/>
+                                        <constraint firstItem="jlw-oa-VlC" firstAttribute="top" secondItem="CTj-1m-QVU" secondAttribute="topMargin" constant="-3.5" id="gJh-z6-EyT"/>
+                                        <constraint firstAttribute="bottom" secondItem="QGJ-dG-gX5" secondAttribute="bottom" constant="10" id="se8-Q6-xxc"/>
                                         <constraint firstItem="dVB-oM-ZWC" firstAttribute="leading" secondItem="CTj-1m-QVU" secondAttribute="leading" constant="20" id="uMx-Yk-7Oc"/>
+                                        <constraint firstItem="dVB-oM-ZWC" firstAttribute="top" secondItem="CTj-1m-QVU" secondAttribute="topMargin" constant="-5" id="x7M-B0-gWS"/>
+                                        <constraint firstItem="jlw-oa-VlC" firstAttribute="leading" secondItem="QGJ-dG-gX5" secondAttribute="trailing" constant="8" id="zCf-Iv-cYF"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="budgetAmountLabel" destination="jlw-oa-VlC" id="Xwc-XW-2DV"/>
                                     <outlet property="budgetNameLabel" destination="dVB-oM-ZWC" id="xRc-KF-JMW"/>
+                                    <outlet property="transactionAmountLabel" destination="QGJ-dG-gX5" id="lSF-bt-6sp"/>
                                     <segue destination="SFn-8m-vTd" kind="show" identifier="toTransactions" id="rQ3-ee-num"/>
                                 </connections>
                             </tableViewCell>
@@ -497,6 +509,9 @@ Transaction</string>
         <image name="plus" catalog="system" width="64" height="56"/>
         <namedColor name="Button Color">
             <color red="0.16078431372549021" green="0.63137254901960782" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Negative">
+            <color red="0.92199999094009399" green="0.090000003576278687" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Negitive">
             <color red="0.92199999094009399" green="0.090000003576278687" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

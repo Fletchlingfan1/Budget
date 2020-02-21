@@ -21,6 +21,8 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
     var budgetTotal: Double?
     var currencyFormater = NumberFormatter()
     var selectedBudget: Budget?
+    var transaction: Transactions?
+
     
     
     var sortedTransactions: [Transactions] {
@@ -46,6 +48,7 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
     override func viewWillAppear(_ animated: Bool) {
         transactionTableView.reloadData()
         negativeTransactionSum()
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,7 +95,7 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
             
         }
     }
-    
+            
     func negativeTransactionSum(){
         guard var sum = selectedBudget?.budgetAmount else {return}
         for transaction in sortedTransactions {
@@ -102,7 +105,7 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
         budgetTotalLabel.textColor = UIColor(named: sum < 0 ? "Negative" : "Positive")
     }
 }
-
+    
 extension Date{
     func toString(style:DateFormatter.Style) -> String {
         let dateFormatter = DateFormatter()
