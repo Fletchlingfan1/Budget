@@ -80,7 +80,7 @@ class BudgetsTableViewController: UITableViewController {
                 self.present(alertController, animated: true, completion: nil)
                 
             } else if budgetAmount.text == "" {
-                                let alertController = UIAlertController(title: "You need a Name and Total", message: nil, preferredStyle: .alert)
+                let alertController = UIAlertController(title: "You need a Name and Total", message: nil, preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
 
                 self.present(alertController, animated: true, completion: nil)
@@ -96,11 +96,13 @@ class BudgetsTableViewController: UITableViewController {
             }
         }
         
+
         self.validation()
         
         alert.addTextField { (textField) in
             textField.placeholder = "Name"
             textField.autocapitalizationType = .sentences
+
             self.nameTextField = textField
             NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using:
                 {_ in
@@ -111,6 +113,7 @@ class BudgetsTableViewController: UITableViewController {
         alert.addTextField { (textField) in
             textField.placeholder = "Total"
             textField.keyboardType = .decimalPad
+                            
             self.totalTextField = textField
             // Observe the UITextFieldTextDidChange notification to be notified in the below block when text is changed
             NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using:
