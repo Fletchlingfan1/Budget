@@ -69,7 +69,7 @@ class BudgetsTableViewController: UITableViewController {
     @IBAction func addButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Add new budget", message: nil, preferredStyle: .alert)
         
-        let add = UIAlertAction(title: "Add", style: .default) { (alertAction) in
+        add = UIAlertAction(title: "Add", style: .default) { (alertAction) in
             let budgetName = alert.textFields! [0] as UITextField
             let budgetAmount = alert.textFields! [1] as UITextField
             
@@ -96,32 +96,29 @@ class BudgetsTableViewController: UITableViewController {
             }
         }
         
-        add.isEnabled = false
+
+        self.validation()
         
         alert.addTextField { (textField) in
             textField.placeholder = "Name"
             textField.autocapitalizationType = .sentences
+
+            self.nameTextField = textField
             NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using:
                 {_ in
-
-                    let textCount = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
-                    let textIsNotEmpty = textCount > 0
-                    
-                    add.isEnabled = textIsNotEmpty
-                
+                    self.validation()
             })
         }
         
         alert.addTextField { (textField) in
             textField.placeholder = "Total"
             textField.keyboardType = .decimalPad
+                            
+            self.totalTextField = textField
+            // Observe the UITextFieldTextDidChange notification to be notified in the below block when text is changed
             NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using:
                 {_ in
-
-                    let textCount = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
-                    let textIsNotEmpty = textCount > 0
-                    
-                    add.isEnabled = textIsNotEmpty
+                    self.validation()
                 
             })
         }
@@ -129,10 +126,32 @@ class BudgetsTableViewController: UITableViewController {
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in }
         alert.addAction(cancel)
         
-        alert.addAction(add)
+        alert.addAction(add!)
         
         self.present(alert, animated: true, completion: nil)
         
+    }
+    
+    var nameTextField: UITextField?
+    var totalTextField: UITextField?
+    var add: UIAlertAction?
+    
+    func validation() {
+        //look at what is in name textfield
+        //look at what is in total textfield
+        
+        let textCountName = nameTextField?.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
+        let textIsNotEmptyName = textCountName > 0
+        
+        let textCountTotal = totalTextField?.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
+        let textIsNotEmptyTotal = textCountTotal > 0
+        
+        // If the text contains non whitespace characters, enable the OK Button
+        if textIsNotEmptyName == true && textIsNotEmptyTotal == true {
+            add?.isEnabled = true
+        } else {
+            add?.isEnabled = false
+        }
     }
     
     func newBudget(_ answer: String) {
