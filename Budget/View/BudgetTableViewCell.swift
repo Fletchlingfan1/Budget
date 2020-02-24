@@ -12,5 +12,7 @@ class BudgetTableViewCell: UITableViewCell {
     
     @IBOutlet var budgetNameLabel: UILabel!
     @IBOutlet var budgetAmountLabel: UILabel!
-
+    @IBOutlet var transactionAmountLabel: UILabel!
 }
+
+

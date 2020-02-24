@@ -82,42 +82,52 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="budgetCell" id="MTs-la-vFZ" customClass="BudgetTableViewCell" customModule="Budget" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="173" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="budgetCell" id="MTs-la-vFZ" customClass="BudgetTableViewCell" customModule="Budget" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="173" width="414" height="44.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MTs-la-vFZ" id="CTj-1m-QVU">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-oM-ZWC">
-                                            <rect key="frame" x="10" y="8.5" width="244" height="27"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Budget Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-oM-ZWC">
+                                            <rect key="frame" x="20" y="6" width="130.5" height="27.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" name="Text Colors"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlw-oa-VlC">
-                                            <rect key="frame" x="264" y="10" width="109" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="109" id="IzX-XL-yHO"/>
-                                            </constraints>
+
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Transaction " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGJ-dG-gX5">
+                                            <rect key="frame" x="159" y="7" width="113" height="27.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <color key="textColor" name="Negative"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Budget Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlw-oa-VlC">
+                                            <rect key="frame" x="280" y="7.5" width="122" height="24.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" name="Positive"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="jlw-oa-VlC" firstAttribute="centerY" secondItem="CTj-1m-QVU" secondAttribute="centerY" id="2dD-L5-T8N"/>
-                                        <constraint firstItem="jlw-oa-VlC" firstAttribute="leading" secondItem="dVB-oM-ZWC" secondAttribute="trailing" constant="10" id="NDj-Vs-5Kc"/>
-                                        <constraint firstItem="dVB-oM-ZWC" firstAttribute="centerY" secondItem="CTj-1m-QVU" secondAttribute="centerY" id="kvT-5R-keX"/>
-                                        <constraint firstItem="dVB-oM-ZWC" firstAttribute="top" secondItem="CTj-1m-QVU" secondAttribute="top" constant="8.5" id="opV-XR-dTw"/>
-                                        <constraint firstAttribute="trailing" secondItem="jlw-oa-VlC" secondAttribute="trailing" constant="10" id="qgD-wb-Nld"/>
-                                        <constraint firstItem="dVB-oM-ZWC" firstAttribute="leading" secondItem="CTj-1m-QVU" secondAttribute="leading" constant="10" id="sb3-AE-1Gx"/>
-                                        <constraint firstAttribute="bottom" secondItem="dVB-oM-ZWC" secondAttribute="bottom" constant="8.5" id="tEb-mh-NCS"/>
+
+
+                                        <constraint firstAttribute="trailing" secondItem="jlw-oa-VlC" secondAttribute="trailing" constant="20" id="QSS-c3-Ham"/>
+                                        <constraint firstItem="QGJ-dG-gX5" firstAttribute="top" secondItem="CTj-1m-QVU" secondAttribute="top" constant="7" id="T9j-va-7dN"/>
+                                        <constraint firstAttribute="bottom" secondItem="jlw-oa-VlC" secondAttribute="bottom" constant="12.5" id="XsL-Fs-T9x"/>
+                                        <constraint firstAttribute="bottom" secondItem="dVB-oM-ZWC" secondAttribute="bottom" constant="11" id="Yaq-CY-hwX"/>
+                                        <constraint firstItem="QGJ-dG-gX5" firstAttribute="leading" secondItem="dVB-oM-ZWC" secondAttribute="trailing" constant="8.5" id="aTa-Xb-XWw"/>
+                                        <constraint firstItem="jlw-oa-VlC" firstAttribute="top" secondItem="CTj-1m-QVU" secondAttribute="topMargin" constant="-3.5" id="gJh-z6-EyT"/>
+                                        <constraint firstAttribute="bottom" secondItem="QGJ-dG-gX5" secondAttribute="bottom" constant="10" id="se8-Q6-xxc"/>
+                                        <constraint firstItem="dVB-oM-ZWC" firstAttribute="leading" secondItem="CTj-1m-QVU" secondAttribute="leading" constant="20" id="uMx-Yk-7Oc"/>
+                                        <constraint firstItem="dVB-oM-ZWC" firstAttribute="top" secondItem="CTj-1m-QVU" secondAttribute="topMargin" constant="-5" id="x7M-B0-gWS"/>
+                                        <constraint firstItem="jlw-oa-VlC" firstAttribute="leading" secondItem="QGJ-dG-gX5" secondAttribute="trailing" constant="8" id="zCf-Iv-cYF"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="budgetAmountLabel" destination="jlw-oa-VlC" id="Xwc-XW-2DV"/>
                                     <outlet property="budgetNameLabel" destination="dVB-oM-ZWC" id="xRc-KF-JMW"/>
+                                    <outlet property="transactionAmountLabel" destination="QGJ-dG-gX5" id="lSF-bt-6sp"/>
                                     <segue destination="SFn-8m-vTd" kind="show" identifier="toTransactions" id="rQ3-ee-num"/>
                                 </connections>
                             </tableViewCell>
@@ -168,7 +178,7 @@
                                                         <constraint firstAttribute="width" constant="93" id="m5L-Yj-rIc"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" name="Positive"/>
+                                                    <color key="textColor" name="Negitive"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvh-Ua-723">
@@ -507,6 +517,12 @@ Transaction</string>
         <image name="plus" catalog="system" width="64" height="56"/>
         <namedColor name="Button Color">
             <color red="0.16078431372549021" green="0.63137254901960782" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Negative">
+            <color red="0.92199999094009399" green="0.090000003576278687" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Negitive">
+            <color red="0.92199999094009399" green="0.090000003576278687" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Positive">
             <color red="0.14509803921568629" green="0.72156862745098038" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

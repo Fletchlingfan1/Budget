@@ -13,6 +13,7 @@ class BudgetsTableViewController: UITableViewController {
 
     @IBOutlet var accountTotalLabel: UILabel!
 
+    
     var budgets: [Budget] {
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
         let fetchBudgets = NSFetchRequest<Budget>(entityName: "Budget")
@@ -20,7 +21,8 @@ class BudgetsTableViewController: UITableViewController {
     }
     
     var currencyFormatter = NumberFormatter()
-        
+    var budget: Budget?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,8 +30,7 @@ class BudgetsTableViewController: UITableViewController {
         
         // This makes the Edit button work.
         navigationItem.leftBarButtonItem = editButtonItem
-        
-        //        tableView.reloadData()
+       
     }
     
     
@@ -59,9 +60,21 @@ class BudgetsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "budgetCell", for: indexPath) as! BudgetTableViewCell
 
         // Configure the cell...
+//        Call transactions and add them together budget.transactions
         let budget = self.budgets[indexPath.row]
         cell.budgetNameLabel.text = budget.budgetName
         cell.budgetAmountLabel.text = currencyFormatter.string(for: budget.budgetAmount)
+        var total: Double = budget.budgetAmount
+        if let transactions = budget.transactions {
+            for transaction in transactions {
+                if let transaction = transaction as? Transactions {
+                    total -= transaction.transactionAmount
+                }
+            }
+        }
+        cell.transactionAmountLabel.text = currencyFormatter.string(for: total)
+        cell.transactionAmountLabel.textColor = UIColor(named: total < 0 ? "Negative" : "Positive")
+        
         
         return cell
     }
@@ -69,7 +82,7 @@ class BudgetsTableViewController: UITableViewController {
     @IBAction func addButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Add new budget", message: nil, preferredStyle: .alert)
         
-        let add = UIAlertAction(title: "Add", style: .default) { (alertAction) in
+        add = UIAlertAction(title: "Add", style: .default) { (alertAction) in
             let budgetName = alert.textFields! [0] as UITextField
             let budgetAmount = alert.textFields! [1] as UITextField
             
@@ -80,7 +93,7 @@ class BudgetsTableViewController: UITableViewController {
                 self.present(alertController, animated: true, completion: nil)
                 
             } else if budgetAmount.text == "" {
-                                let alertController = UIAlertController(title: "You need a Name and Total", message: nil, preferredStyle: .alert)
+                let alertController = UIAlertController(title: "You need a Name and Total", message: nil, preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
 
                 self.present(alertController, animated: true, completion: nil)
@@ -96,23 +109,62 @@ class BudgetsTableViewController: UITableViewController {
             }
         }
         
+
+        self.validation()
+        
         alert.addTextField { (textField) in
             textField.placeholder = "Name"
             textField.autocapitalizationType = .sentences
+
+            self.nameTextField = textField
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using:
+                {_ in
+                    self.validation()
+            })
         }
         
         alert.addTextField { (textField) in
             textField.placeholder = "Total"
             textField.keyboardType = .decimalPad
+                            
+            self.totalTextField = textField
+            // Observe the UITextFieldTextDidChange notification to be notified in the below block when text is changed
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using:
+                {_ in
+                    self.validation()
+                
+            })
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in }
         alert.addAction(cancel)
         
-        alert.addAction(add)
+        alert.addAction(add!)
         
         self.present(alert, animated: true, completion: nil)
         
+    }
+    
+    var nameTextField: UITextField?
+    var totalTextField: UITextField?
+    var add: UIAlertAction?
+    
+    func validation() {
+        //look at what is in name textfield
+        //look at what is in total textfield
+        
+        let textCountName = nameTextField?.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
+        let textIsNotEmptyName = textCountName > 0
+        
+        let textCountTotal = totalTextField?.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
+        let textIsNotEmptyTotal = textCountTotal > 0
+        
+        // If the text contains non whitespace characters, enable the OK Button
+        if textIsNotEmptyName == true && textIsNotEmptyTotal == true {
+            add?.isEnabled = true
+        } else {
+            add?.isEnabled = false
+        }
     }
     
     func newBudget(_ answer: String) {
@@ -173,5 +225,4 @@ class BudgetsTableViewController: UITableViewController {
             addBudgetVC.budgetTotal = budget.budgetAmount
         }
     }
-    
 }
