@@ -33,7 +33,7 @@
 		608FC96E23D9E930001E7BF1 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		608FC97023D9E945001E7BF1 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		608FC97223D9F37E001E7BF1 /* BudgetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetController.swift; sourceTree = "<group>"; };
-		7EEBB83F23CE15A1000F8F62 /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EEBB83F23CE15A1000F8F62 /* Growth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Growth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EEBB84223CE15A1000F8F62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EEBB84423CE15A1000F8F62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7EEBB84923CE15A1000F8F62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		7EEBB84023CE15A1000F8F62 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7EEBB83F23CE15A1000F8F62 /* Budget.app */,
+				7EEBB83F23CE15A1000F8F62 /* Growth.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,9 +119,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7EEBB83E23CE15A1000F8F62 /* Budget */ = {
+		7EEBB83E23CE15A1000F8F62 /* Growth */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7EEBB85623CE15A3000F8F62 /* Build configuration list for PBXNativeTarget "Budget" */;
+			buildConfigurationList = 7EEBB85623CE15A3000F8F62 /* Build configuration list for PBXNativeTarget "Growth" */;
 			buildPhases = (
 				7EEBB83B23CE15A1000F8F62 /* Sources */,
 				7EEBB83C23CE15A1000F8F62 /* Frameworks */,
@@ -131,9 +131,9 @@
 			);
 			dependencies = (
 			);
-			name = Budget;
+			name = Growth;
 			productName = Budget;
-			productReference = 7EEBB83F23CE15A1000F8F62 /* Budget.app */;
+			productReference = 7EEBB83F23CE15A1000F8F62 /* Growth.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -164,7 +164,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7EEBB83E23CE15A1000F8F62 /* Budget */,
+				7EEBB83E23CE15A1000F8F62 /* Growth */,
 			);
 		};
 /* End PBXProject section */
@@ -345,13 +345,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JWL5FJ33M8;
+				DEVELOPMENT_TEAM = 76LA7C6XRK;
 				INFOPLIST_FILE = Budget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = djdev.Budget;
+				PRODUCT_BUNDLE_IDENTIFIER = Growth.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -363,13 +363,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JWL5FJ33M8;
+				DEVELOPMENT_TEAM = 76LA7C6XRK;
 				INFOPLIST_FILE = Budget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = djdev.Budget;
+				PRODUCT_BUNDLE_IDENTIFIER = Growth.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -388,7 +388,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7EEBB85623CE15A3000F8F62 /* Build configuration list for PBXNativeTarget "Budget" */ = {
+		7EEBB85623CE15A3000F8F62 /* Build configuration list for PBXNativeTarget "Growth" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7EEBB85723CE15A3000F8F62 /* Debug */,
