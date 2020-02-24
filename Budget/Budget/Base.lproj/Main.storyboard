@@ -83,14 +83,14 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="budgetCell" id="MTs-la-vFZ" customClass="BudgetTableViewCell" customModule="Budget" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="173" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="173" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MTs-la-vFZ" id="CTj-1m-QVU">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-oM-ZWC">
-                                            <rect key="frame" x="10" y="8.5" width="244" height="26.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-oM-ZWC">
+                                            <rect key="frame" x="10" y="8.5" width="244" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" name="Text Colors"/>
                                             <nil key="highlightedColor"/>
@@ -109,8 +109,10 @@
                                         <constraint firstItem="jlw-oa-VlC" firstAttribute="centerY" secondItem="CTj-1m-QVU" secondAttribute="centerY" id="2dD-L5-T8N"/>
                                         <constraint firstItem="jlw-oa-VlC" firstAttribute="leading" secondItem="dVB-oM-ZWC" secondAttribute="trailing" constant="10" id="NDj-Vs-5Kc"/>
                                         <constraint firstItem="dVB-oM-ZWC" firstAttribute="centerY" secondItem="CTj-1m-QVU" secondAttribute="centerY" id="kvT-5R-keX"/>
+                                        <constraint firstItem="dVB-oM-ZWC" firstAttribute="top" secondItem="CTj-1m-QVU" secondAttribute="top" constant="8.5" id="opV-XR-dTw"/>
                                         <constraint firstAttribute="trailing" secondItem="jlw-oa-VlC" secondAttribute="trailing" constant="10" id="qgD-wb-Nld"/>
                                         <constraint firstItem="dVB-oM-ZWC" firstAttribute="leading" secondItem="CTj-1m-QVU" secondAttribute="leading" constant="10" id="sb3-AE-1Gx"/>
+                                        <constraint firstAttribute="bottom" secondItem="dVB-oM-ZWC" secondAttribute="bottom" constant="8.5" id="tEb-mh-NCS"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -154,10 +156,10 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionCell" id="XrP-VG-Icr" customClass="TransactionTableViewCell" customModule="Budget" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XrP-VG-Icr" id="fUn-jE-cyo">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5d-Sv-n1M">
@@ -178,7 +180,7 @@
                                                     <color key="textColor" name="Text Colors"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gv-ta-fPE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gv-ta-fPE">
                                                     <rect key="frame" x="20" y="11" width="182" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" name="Text Colors"/>
@@ -191,6 +193,8 @@
                                                 <constraint firstItem="J5d-Sv-n1M" firstAttribute="leading" secondItem="qvh-Ua-723" secondAttribute="trailing" constant="8" id="965-04-2vN"/>
                                                 <constraint firstItem="J5d-Sv-n1M" firstAttribute="centerY" secondItem="fUn-jE-cyo" secondAttribute="centerY" id="AR1-TP-HTi"/>
                                                 <constraint firstItem="9gv-ta-fPE" firstAttribute="leading" secondItem="fUn-jE-cyo" secondAttribute="leadingMargin" id="ChG-Zx-1FK"/>
+                                                <constraint firstItem="9gv-ta-fPE" firstAttribute="bottom" secondItem="fUn-jE-cyo" secondAttribute="bottomMargin" id="De6-S9-XwO"/>
+                                                <constraint firstItem="9gv-ta-fPE" firstAttribute="top" secondItem="fUn-jE-cyo" secondAttribute="topMargin" id="M7j-dq-85q"/>
                                                 <constraint firstItem="qvh-Ua-723" firstAttribute="leading" secondItem="9gv-ta-fPE" secondAttribute="trailing" constant="8" id="ZiS-02-gKt"/>
                                                 <constraint firstItem="9gv-ta-fPE" firstAttribute="centerY" secondItem="fUn-jE-cyo" secondAttribute="centerY" id="ivf-DI-MXg"/>
                                             </constraints>
@@ -208,8 +212,8 @@
                                     <outlet property="delegate" destination="SFn-8m-vTd" id="Ync-28-jjt"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SU6-xa-flE">
-                                <rect key="frame" x="20" y="96" width="223" height="45.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SU6-xa-flE">
+                                <rect key="frame" x="20" y="96" width="374" height="45.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <color key="textColor" name="Text Colors"/>
                                 <nil key="highlightedColor"/>
@@ -237,6 +241,7 @@
                             <constraint firstItem="SU6-xa-flE" firstAttribute="leading" secondItem="ajh-dI-X74" secondAttribute="leading" constant="20" id="XPf-Oo-dOn"/>
                             <constraint firstItem="SU6-xa-flE" firstAttribute="top" secondItem="ajh-dI-X74" secondAttribute="top" constant="8" id="Xxk-Ea-0U2"/>
                             <constraint firstItem="yru-gn-t40" firstAttribute="top" secondItem="SU6-xa-flE" secondAttribute="bottom" constant="8" id="aUQ-kG-RZN"/>
+                            <constraint firstItem="ajh-dI-X74" firstAttribute="trailing" secondItem="SU6-xa-flE" secondAttribute="trailing" constant="20" id="elY-4g-btQ"/>
                             <constraint firstItem="x7a-4o-6dM" firstAttribute="top" secondItem="yru-gn-t40" secondAttribute="bottom" constant="8" id="htI-ms-Odx"/>
                             <constraint firstItem="yru-gn-t40" firstAttribute="leading" secondItem="ajh-dI-X74" secondAttribute="leading" id="j2h-do-MAn"/>
                             <constraint firstItem="ajh-dI-X74" firstAttribute="trailing" secondItem="yru-gn-t40" secondAttribute="trailing" id="qw3-7r-1TY"/>
@@ -264,7 +269,7 @@
         <scene sceneID="nZO-66-byE">
             <objects>
                 <tableViewController id="eOm-u2-X9U" customClass="AddTransactionTableViewController" customModule="Budget" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="A4B-zH-OyI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="A4B-zH-OyI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -340,7 +345,7 @@ Transaction</string>
                                                     <rect key="frame" x="105" y="5" width="301" height="34"/>
                                                     <color key="textColor" name="Text Colors"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xG-Sh-Ery">
                                                     <rect key="frame" x="20" y="11" width="65" height="22"/>
@@ -465,7 +470,6 @@ Transaction</string>
                         <outlet property="transactionAmount" destination="cMG-nJ-x3j" id="fzm-Yo-Gnn"/>
                         <outlet property="transactionDatePicker" destination="Pqc-8i-imF" id="mRR-57-gO7"/>
                         <outlet property="transactionName" destination="TOZ-Dy-mS7" id="zZt-dg-aDW"/>
-                        <outlet property="transactionNotes" destination="Wfl-kv-Tk4" id="07w-23-geZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIX-Qh-en0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

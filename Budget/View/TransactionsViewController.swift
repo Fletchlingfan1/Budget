@@ -11,8 +11,6 @@ import UIKit
 class TransactionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
-    
-    
     @IBOutlet var transactionTableView: UITableView!
     @IBOutlet weak var budgetNameLabel: UILabel!
     @IBOutlet weak var budgetTotalLabel: UILabel!
@@ -74,6 +72,11 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     
     // MARK: - Navigation
     

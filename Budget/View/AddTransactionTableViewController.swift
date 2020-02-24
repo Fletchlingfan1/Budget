@@ -8,14 +8,14 @@
 
 import UIKit
 
-class AddTransactionTableViewController: UITableViewController {
+class AddTransactionTableViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet var transactionDatePicker: UIDatePicker!
     @IBOutlet var datePickerLabel: UILabel!
     @IBOutlet var notesTextView: UITextView!
     @IBOutlet var transactionName: UITextField!
     @IBOutlet var transactionAmount: UITextField!
-    @IBOutlet var transactionNotes: UITextView!
+//    @IBOutlet var transactionNotes: UITextView!
     
     var dateEditing = false {
         didSet {
@@ -51,13 +51,16 @@ class AddTransactionTableViewController: UITableViewController {
         guard let selectedTransaction = transaction else {return}
         transactionAmount.text = "\(selectedTransaction.transactionAmount)"
         transactionName.text = selectedTransaction.transactionName
-        transactionNotes.text = selectedTransaction.transactionNotes
+        notesTextView.text = selectedTransaction.transactionNotes
         
         guard let setTransactionDate = selectedTransaction.transactionDate else {return}
         
         datePickerLabel.text = BudgetController.sharedController.stringForDate(date: setTransactionDate)
         
         transactionDatePicker.date = setTransactionDate
+        self.transactionName.delegate = self
+        self.notesTextView.delegate = self
+        self.transactionAmount.delegate = self
     }
 
     // MARK: - Table view data source
@@ -66,7 +69,7 @@ class AddTransactionTableViewController: UITableViewController {
         guard let name = transactionName.text,
             let amount = transactionAmount.text,
             let date: Date = transactionDatePicker.date,
-            let notes = transactionNotes.text,
+            let notes = notesTextView.text,
             let amountDouble = Double(amount),
             let currentBudget = currentBudget else {
             return
@@ -87,8 +90,12 @@ class AddTransactionTableViewController: UITableViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 6
+    }
     
-    
+    //MARK: Date picker stuff
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath == IndexPath(row: 4, section: 0){
             if dateEditing == true {
@@ -96,13 +103,6 @@ class AddTransactionTableViewController: UITableViewController {
             } else {
                 return 0
             }
-//            if editingDatePicker == true {
-//                editingDatePicker = false
-//                return transactionDatePicker.frame.height
-//            } else {
-//                editingDatePicker = true
-//                return CGFloat(datePickerHeight)
-//            }
         } else if indexPath == IndexPath(row: 0, section: 0){
             return CGFloat(141.0)
         } else if indexPath == IndexPath(row: 5, section: 0){
@@ -113,18 +113,36 @@ class AddTransactionTableViewController: UITableViewController {
     }
 
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 6
-    }
-
      override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath == IndexPath(row: 3, section: 0) {
             dateEditing = !dateEditing
             datePickerLabel.text = BudgetController.sharedController.stringForDate(date: transactionDatePicker.date)
+            transactionAmount.resignFirstResponder()
+            transactionName.resignFirstResponder()
+            notesTextView.resignFirstResponder()
+        } else {
+            dateEditing = !dateEditing
+            datePickerLabel.text = BudgetController.sharedController.stringForDate(date: transactionDatePicker.date)
         }
 
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        dateEditing = false
+        datePickerLabel.text = BudgetController.sharedController.stringForDate(date: transactionDatePicker.date)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        dateEditing = false
+        datePickerLabel.text = BudgetController.sharedController.stringForDate(date: transactionDatePicker.date)
+    }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 
