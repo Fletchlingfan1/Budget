@@ -13,6 +13,7 @@ class BudgetsTableViewController: UITableViewController {
 
     @IBOutlet var accountTotalLabel: UILabel!
 
+    
     var budgets: [Budget] {
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
         let fetchBudgets = NSFetchRequest<Budget>(entityName: "Budget")
@@ -20,7 +21,8 @@ class BudgetsTableViewController: UITableViewController {
     }
     
     var currencyFormatter = NumberFormatter()
-        
+    var budget: Budget?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,8 +30,7 @@ class BudgetsTableViewController: UITableViewController {
         
         // This makes the Edit button work.
         navigationItem.leftBarButtonItem = editButtonItem
-        
-        //        tableView.reloadData()
+       
     }
     
     
@@ -59,9 +60,21 @@ class BudgetsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "budgetCell", for: indexPath) as! BudgetTableViewCell
 
         // Configure the cell...
+//        Call transactions and add them together budget.transactions
         let budget = self.budgets[indexPath.row]
         cell.budgetNameLabel.text = budget.budgetName
         cell.budgetAmountLabel.text = currencyFormatter.string(for: budget.budgetAmount)
+        var total: Double = budget.budgetAmount
+        if let transactions = budget.transactions {
+            for transaction in transactions {
+                if let transaction = transaction as? Transactions {
+                    total -= transaction.transactionAmount
+                }
+            }
+        }
+        cell.transactionAmountLabel.text = currencyFormatter.string(for: total)
+        cell.transactionAmountLabel.textColor = UIColor(named: total < 0 ? "Negative" : "Positive")
+        
         
         return cell
     }
@@ -212,5 +225,4 @@ class BudgetsTableViewController: UITableViewController {
             addBudgetVC.budgetTotal = budget.budgetAmount
         }
     }
-    
 }
