@@ -82,7 +82,7 @@ class BudgetsTableViewController: UITableViewController {
     @IBAction func addButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Add new budget", message: nil, preferredStyle: .alert)
         
-        let add = UIAlertAction(title: "Add", style: .default) { (alertAction) in
+        add = UIAlertAction(title: "Add", style: .default) { (alertAction) in
             let budgetName = alert.textFields! [0] as UITextField
             let budgetAmount = alert.textFields! [1] as UITextField
             
@@ -93,7 +93,7 @@ class BudgetsTableViewController: UITableViewController {
                 self.present(alertController, animated: true, completion: nil)
                 
             } else if budgetAmount.text == "" {
-                                let alertController = UIAlertController(title: "You need a Name and Total", message: nil, preferredStyle: .alert)
+                let alertController = UIAlertController(title: "You need a Name and Total", message: nil, preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
 
                 self.present(alertController, animated: true, completion: nil)
@@ -109,23 +109,62 @@ class BudgetsTableViewController: UITableViewController {
             }
         }
         
+
+        self.validation()
+        
         alert.addTextField { (textField) in
             textField.placeholder = "Name"
             textField.autocapitalizationType = .sentences
+
+            self.nameTextField = textField
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using:
+                {_ in
+                    self.validation()
+            })
         }
         
         alert.addTextField { (textField) in
             textField.placeholder = "Total"
             textField.keyboardType = .decimalPad
+                            
+            self.totalTextField = textField
+            // Observe the UITextFieldTextDidChange notification to be notified in the below block when text is changed
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using:
+                {_ in
+                    self.validation()
+                
+            })
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in }
         alert.addAction(cancel)
         
-        alert.addAction(add)
+        alert.addAction(add!)
         
         self.present(alert, animated: true, completion: nil)
         
+    }
+    
+    var nameTextField: UITextField?
+    var totalTextField: UITextField?
+    var add: UIAlertAction?
+    
+    func validation() {
+        //look at what is in name textfield
+        //look at what is in total textfield
+        
+        let textCountName = nameTextField?.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
+        let textIsNotEmptyName = textCountName > 0
+        
+        let textCountTotal = totalTextField?.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
+        let textIsNotEmptyTotal = textCountTotal > 0
+        
+        // If the text contains non whitespace characters, enable the OK Button
+        if textIsNotEmptyName == true && textIsNotEmptyTotal == true {
+            add?.isEnabled = true
+        } else {
+            add?.isEnabled = false
+        }
     }
     
     func newBudget(_ answer: String) {
@@ -167,16 +206,7 @@ class BudgetsTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //detect the correct segue, the edit segue
-        if segue.identifier == "editBudget" {
-            
-            //if it's the edit budget segue then get the budget tapped and grab the view controller
-            guard let addBudgetVC = segue.destination as? AddBudgetTableViewController, let selectedRow = tableView.indexPathForSelectedRow?.row else {return}
-            let budget = BudgetController.sharedController.budget[selectedRow]
-            
-            //and give the destination view controller the budget you just tapped
-            addBudgetVC.loadViewIfNeeded()
-            addBudgetVC.budget = budget
-        } else if segue.identifier == "toTransactions" {
+        if segue.identifier == "toTransactions" {
             guard let transactionsVC = segue.destination as? TransactionsViewController, let selectedRow = tableView.indexPathForSelectedRow?.row else {return}
             let budget = BudgetController.sharedController.budget[selectedRow]
             transactionsVC.selectedBudget = budget
