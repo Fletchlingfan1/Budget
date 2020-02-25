@@ -82,46 +82,51 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="budgetCell" id="MTs-la-vFZ" customClass="BudgetTableViewCell" customModule="Budget" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="budgetCell" id="MTs-la-vFZ" customClass="BudgetTableViewCell" customModule="Budget" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="173" width="414" height="44.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MTs-la-vFZ" id="CTj-1m-QVU">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="44.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Budget Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-oM-ZWC">
-                                            <rect key="frame" x="20" y="6" width="130.5" height="27.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Budget Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-oM-ZWC">
+                                            <rect key="frame" x="5" y="10" width="163" height="24.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="149" id="68L-4t-804"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" name="Text Colors"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Transaction " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGJ-dG-gX5">
-                                            <rect key="frame" x="159" y="7" width="113" height="27.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Transaction " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGJ-dG-gX5">
+                                            <rect key="frame" x="173" y="10" width="100" height="24.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="MxN-pt-evm"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" name="Negative"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Budget Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlw-oa-VlC">
-                                            <rect key="frame" x="280" y="7.5" width="122" height="24.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlw-oa-VlC">
+                                            <rect key="frame" x="278" y="10.5" width="100" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="Sxf-oD-Aqr"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" name="Positive"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-
-
-                                        <constraint firstAttribute="trailing" secondItem="jlw-oa-VlC" secondAttribute="trailing" constant="20" id="QSS-c3-Ham"/>
-                                        <constraint firstItem="QGJ-dG-gX5" firstAttribute="top" secondItem="CTj-1m-QVU" secondAttribute="top" constant="7" id="T9j-va-7dN"/>
-                                        <constraint firstAttribute="bottom" secondItem="jlw-oa-VlC" secondAttribute="bottom" constant="12.5" id="XsL-Fs-T9x"/>
-                                        <constraint firstAttribute="bottom" secondItem="dVB-oM-ZWC" secondAttribute="bottom" constant="11" id="Yaq-CY-hwX"/>
-                                        <constraint firstItem="QGJ-dG-gX5" firstAttribute="leading" secondItem="dVB-oM-ZWC" secondAttribute="trailing" constant="8.5" id="aTa-Xb-XWw"/>
-                                        <constraint firstItem="jlw-oa-VlC" firstAttribute="top" secondItem="CTj-1m-QVU" secondAttribute="topMargin" constant="-3.5" id="gJh-z6-EyT"/>
-                                        <constraint firstAttribute="bottom" secondItem="QGJ-dG-gX5" secondAttribute="bottom" constant="10" id="se8-Q6-xxc"/>
-                                        <constraint firstItem="dVB-oM-ZWC" firstAttribute="leading" secondItem="CTj-1m-QVU" secondAttribute="leading" constant="20" id="uMx-Yk-7Oc"/>
-                                        <constraint firstItem="dVB-oM-ZWC" firstAttribute="top" secondItem="CTj-1m-QVU" secondAttribute="topMargin" constant="-5" id="x7M-B0-gWS"/>
-                                        <constraint firstItem="jlw-oa-VlC" firstAttribute="leading" secondItem="QGJ-dG-gX5" secondAttribute="trailing" constant="8" id="zCf-Iv-cYF"/>
+                                        <constraint firstItem="dVB-oM-ZWC" firstAttribute="top" secondItem="CTj-1m-QVU" secondAttribute="top" constant="10" id="Crh-WF-sbP"/>
+                                        <constraint firstItem="jlw-oa-VlC" firstAttribute="centerY" secondItem="CTj-1m-QVU" secondAttribute="centerY" id="ODK-nv-7op"/>
+                                        <constraint firstItem="QGJ-dG-gX5" firstAttribute="leading" secondItem="dVB-oM-ZWC" secondAttribute="trailing" constant="5" id="Sn7-lV-Bs0"/>
+                                        <constraint firstItem="QGJ-dG-gX5" firstAttribute="top" secondItem="CTj-1m-QVU" secondAttribute="top" constant="10" id="TJD-2e-drw"/>
+                                        <constraint firstAttribute="bottom" secondItem="QGJ-dG-gX5" secondAttribute="bottom" constant="10" id="Uoj-tR-NRC"/>
+                                        <constraint firstAttribute="bottom" secondItem="dVB-oM-ZWC" secondAttribute="bottom" constant="10" id="cAI-f0-2Jm"/>
+                                        <constraint firstItem="dVB-oM-ZWC" firstAttribute="leading" secondItem="CTj-1m-QVU" secondAttribute="leading" constant="5" id="diR-Kc-2Mu"/>
+                                        <constraint firstAttribute="trailing" secondItem="jlw-oa-VlC" secondAttribute="trailing" constant="5" id="vl7-cQ-c2a"/>
+                                        <constraint firstItem="jlw-oa-VlC" firstAttribute="leading" secondItem="QGJ-dG-gX5" secondAttribute="trailing" constant="5" id="zhx-oy-3ZK"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
