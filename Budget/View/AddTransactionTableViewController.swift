@@ -31,6 +31,9 @@ class AddTransactionTableViewController: UITableViewController, UITextFieldDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.transactionName.delegate = self
+        self.notesTextView.delegate = self
+        self.transactionAmount.delegate = self
         //formatting for date label box
         datePickerLabel!.layer.borderWidth = 1
         datePickerLabel!.layer.cornerRadius = 5.0
@@ -58,9 +61,7 @@ class AddTransactionTableViewController: UITableViewController, UITextFieldDeleg
         datePickerLabel.text = BudgetController.sharedController.stringForDate(date: setTransactionDate)
         
         transactionDatePicker.date = setTransactionDate
-        self.transactionName.delegate = self
-        self.notesTextView.delegate = self
-        self.transactionAmount.delegate = self
+
     }
 
     // MARK: - Table view data source
@@ -130,15 +131,11 @@ class AddTransactionTableViewController: UITableViewController, UITextFieldDeleg
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         dateEditing = false
+        if datePickerLabel.text != "" {
         datePickerLabel.text = BudgetController.sharedController.stringForDate(date: transactionDatePicker.date)
+        }
     }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        dateEditing = false
-        datePickerLabel.text = BudgetController.sharedController.stringForDate(date: transactionDatePicker.date)
-    }
-    
-    
+
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
