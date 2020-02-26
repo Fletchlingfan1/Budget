@@ -136,11 +136,16 @@ class AddTransactionTableViewController: UITableViewController, UITextFieldDeleg
         }
     }
 
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        dateEditing = false
+        if datePickerLabel.text != "" {
+        datePickerLabel.text = BudgetController.sharedController.stringForDate(date: transactionDatePicker.date)
+        }
     }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
     
 
     
