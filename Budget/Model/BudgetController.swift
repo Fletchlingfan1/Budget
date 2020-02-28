@@ -66,4 +66,8 @@ class BudgetController {
         formatter.timeStyle = .none
         return formatter.string(from: date)
     }
+    
+    func saveMovement() {
+        Stack.saveContext()
+    }
 }
