@@ -92,10 +92,7 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
             let transaction = self.sortedTransactions[selectedRow]
             editTransactionVC.currentBudget = selectedBudget
             editTransactionVC.transaction = transaction
-//            editTransactionVC.transactionAmount.text = "\(transaction.transactionAmount)"
-//            editTransactionVC.datePickerLabel.text = BudgetController.sharedController.stringForDate(date: transaction.transactionDate)
-            
-            
+ 
         }
     }
             
