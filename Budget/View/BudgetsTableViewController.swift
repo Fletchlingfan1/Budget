@@ -14,11 +14,8 @@ class BudgetsTableViewController: UITableViewController {
     @IBOutlet var accountTotalLabel: UILabel!
 
     
-    var budgets: [Budget] {
-        guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
-        let fetchBudgets = NSFetchRequest<Budget>(entityName: "Budget")
-        return try! delegate.persistentContainer.viewContext.fetch(fetchBudgets)
-    }
+    var budgets: [Budget] = []
+
     
     var currencyFormatter = NumberFormatter()
     var budget: Budget?
@@ -30,6 +27,10 @@ class BudgetsTableViewController: UITableViewController {
         
         // This makes the Edit button work.
         navigationItem.leftBarButtonItem = editButtonItem
+        
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let fetchBudgets = NSFetchRequest<Budget>(entityName: "Budget")
+        budgets = try! delegate.persistentContainer.viewContext.fetch(fetchBudgets)
        
     }
     
@@ -78,7 +79,9 @@ class BudgetsTableViewController: UITableViewController {
         
         return cell
     }
-
+    
+    // MARK: - Add new budget (Daxton)
+    
     @IBAction func addButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Add new budget", message: nil, preferredStyle: .alert)
         
@@ -181,23 +184,21 @@ class BudgetsTableViewController: UITableViewController {
             calculateSum()
         }
     }
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
 
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-
-
-    /*
-    // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let budgetToMove = budgets[sourceIndexPath.row]
+        budgets.remove(at: sourceIndexPath.row)
+        budgets.insert(budgetToMove, at: destinationIndexPath.row)
+    }
 
     // MARK: - Navigation
 

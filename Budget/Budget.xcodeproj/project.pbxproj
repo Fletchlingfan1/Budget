@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6065C99123E9D3D400A5832C /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6065C99023E9D3D400A5832C /* FakeData.swift */; };
 		608FC96B23D8B17B001E7BF1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FC96A23D8B17B001E7BF1 /* Transaction.swift */; };
 		608FC96D23D8B346001E7BF1 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FC96C23D8B346001E7BF1 /* Stack.swift */; };
 		608FC96F23D9E930001E7BF1 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FC96E23D9E930001E7BF1 /* Budget.swift */; };
@@ -27,7 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6065C99023E9D3D400A5832C /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		608FC96A23D8B17B001E7BF1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		608FC96C23D8B346001E7BF1 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		608FC96E23D9E930001E7BF1 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 			children = (
 				608FC97223D9F37E001E7BF1 /* BudgetController.swift */,
 				608FC96C23D8B346001E7BF1 /* Stack.swift */,
-				6065C99023E9D3D400A5832C /* FakeData.swift */,
 				608FC96A23D8B17B001E7BF1 /* Transaction.swift */,
 				608FC97023D9E945001E7BF1 /* Account.swift */,
 				608FC96E23D9E930001E7BF1 /* Budget.swift */,
@@ -195,7 +192,6 @@
 				F32D9B2023DB472600A89993 /* TransactionTableViewCell.swift in Sources */,
 				7EEBB84523CE15A1000F8F62 /* SceneDelegate.swift in Sources */,
 				F32D9B2223DB47E600A89993 /* AddTransactionTableViewController.swift in Sources */,
-				6065C99123E9D3D400A5832C /* FakeData.swift in Sources */,
 				608FC96D23D8B346001E7BF1 /* Stack.swift in Sources */,
 				608FC97323D9F37E001E7BF1 /* BudgetController.swift in Sources */,
 				608FC97123D9E945001E7BF1 /* Account.swift in Sources */,
