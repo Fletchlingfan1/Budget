@@ -98,7 +98,6 @@ class BudgetsTableViewController: UITableViewController {
                 let amountDouble = Double(amount) else {return}
             
             BudgetController.sharedController.addBudget(budgetName: name, budgetAmount: amountDouble)
-            let currentBudget = Budget(budgetName: name, budgetAmount: amountDouble)
             self.getBudget()
             self.tableView.reloadData()
             self.calculateSum()
