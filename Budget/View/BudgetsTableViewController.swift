@@ -98,7 +98,6 @@ class BudgetsTableViewController: UITableViewController {
                 let amountDouble = Double(amount) else {return}
             
             BudgetController.sharedController.addBudget(budgetName: name, budgetAmount: amountDouble)
-            let currentBudget = Budget(budgetName: name, budgetAmount: amountDouble)
             self.getBudget()
             self.tableView.reloadData()
             self.calculateSum()
@@ -162,7 +161,7 @@ class BudgetsTableViewController: UITableViewController {
         }
     }
     
-//    MARK: -
+//    MARK: - ???
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
