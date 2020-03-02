@@ -10,30 +10,20 @@ import UIKit
 import CoreData
 
 class BudgetsTableViewController: UITableViewController {
+    
+//    MARK: - Setup
 
     @IBOutlet var accountTotalLabel: UILabel!
 
-    
     var budgets: [Budget] = []
-
-    
     var currencyFormatter = NumberFormatter()
     var budget: Budget?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        currencyFormatter.numberStyle = .currency
-        
-        // This makes the Edit button work.
-        navigationItem.leftBarButtonItem = editButtonItem
-        
+    func getBudget() {
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let fetchBudgets = NSFetchRequest<Budget>(entityName: "Budget")
         budgets = try! delegate.persistentContainer.viewContext.fetch(fetchBudgets)
-       
     }
-    
     
     func calculateSum() {
         
@@ -44,11 +34,25 @@ class BudgetsTableViewController: UITableViewController {
         accountTotalLabel.text = currencyFormatter.string(for: sum)
     }
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        currencyFormatter.numberStyle = .currency
+        
+        // This makes the Edit button work.
+        navigationItem.leftBarButtonItem = editButtonItem
+        
+        getBudget()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        getBudget()
         calculateSum()
     }
 
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,7 +84,7 @@ class BudgetsTableViewController: UITableViewController {
         return cell
     }
     
-    // MARK: - Add new budget (Daxton)
+    // MARK: - Add New Budget
     
     @IBAction func addButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Add new budget", message: nil, preferredStyle: .alert)
@@ -89,29 +93,15 @@ class BudgetsTableViewController: UITableViewController {
             let budgetName = alert.textFields! [0] as UITextField
             let budgetAmount = alert.textFields! [1] as UITextField
             
-            if budgetName.text == "" {
-                let alertController = UIAlertController(title: "You need a Name and Total", message: nil, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-
-                self.present(alertController, animated: true, completion: nil)
-                
-            } else if budgetAmount.text == "" {
-                let alertController = UIAlertController(title: "You need a Name and Total", message: nil, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-
-                self.present(alertController, animated: true, completion: nil)
-                
-            } else {
-                guard let name = budgetName.text,
-                    let amount = budgetAmount.text,
-                    let amountDouble = Double(amount) else {return}
-                
-                BudgetController.sharedController.addBudget(budgetName: name, budgetAmount: amountDouble)
-                let currentBudget = Budget(budgetName: name, budgetAmount: amountDouble)
-                self.budgets.append(currentBudget)
-                self.tableView.reloadData()
-                self.calculateSum()
-            }
+            guard let name = budgetName.text,
+                let amount = budgetAmount.text,
+                let amountDouble = Double(amount) else {return}
+            
+            BudgetController.sharedController.addBudget(budgetName: name, budgetAmount: amountDouble)
+            let currentBudget = Budget(budgetName: name, budgetAmount: amountDouble)
+            self.getBudget()
+            self.tableView.reloadData()
+            self.calculateSum()
         }
         
 
@@ -172,9 +162,7 @@ class BudgetsTableViewController: UITableViewController {
         }
     }
     
-    func newBudget(_ answer: String) {
-        
-    }
+//    MARK: -
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -213,7 +201,6 @@ class BudgetsTableViewController: UITableViewController {
             guard let transactionsVC = segue.destination as? TransactionsViewController, let selectedRow = tableView.indexPathForSelectedRow?.row else {return}
             let budget = BudgetController.sharedController.budget[selectedRow]
             transactionsVC.selectedBudget = budget
-            
         }
         
         /* if the segue is "toTransactions", then:
