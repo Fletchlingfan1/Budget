@@ -98,6 +98,7 @@ class BudgetsTableViewController: UITableViewController {
                 let amountDouble = Double(amount) else {return}
             
             BudgetController.sharedController.addBudget(budgetName: name, budgetAmount: amountDouble)
+            let currentBudget = Budget(budgetName: name, budgetAmount: amountDouble)
             self.getBudget()
             self.tableView.reloadData()
             self.calculateSum()
@@ -167,7 +168,9 @@ class BudgetsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            
             let budget = BudgetController.sharedController.budget[indexPath.row]
+            budgets.remove(at: indexPath.row)
             BudgetController.sharedController.deleteBudget(budget: budget)
             tableView.deleteRows(at: [indexPath], with: .fade)
             calculateSum()
