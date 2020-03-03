@@ -46,7 +46,7 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
     override func viewWillAppear(_ animated: Bool) {
         transactionTableView.reloadData()
         negativeTransactionSum()
-
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,6 +71,7 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
         cell.transactionAmountTextField.text = currencyFormater.string(for: transactions.transactionAmount)
         cell.transactionDateTextField.text = transactions.transactionDate?.toString(style: .short)
         cell.transactionNameTextField.text = transactions.transactionName
+        
         return cell
         
     }
@@ -92,7 +93,7 @@ class TransactionsViewController: UIViewController, UITableViewDataSource, UITab
             let transaction = self.sortedTransactions[selectedRow]
             editTransactionVC.currentBudget = selectedBudget
             editTransactionVC.transaction = transaction
- 
+            Stack.saveContext()
         }
     }
             

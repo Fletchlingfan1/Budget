@@ -20,9 +20,7 @@ class BudgetsTableViewController: UITableViewController {
     var budget: Budget?
     
     func getBudget() {
-        guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let fetchBudgets = NSFetchRequest<Budget>(entityName: "Budget")
-        budgets = try! delegate.persistentContainer.viewContext.fetch(fetchBudgets)
+        budgets = try! Stack.context.fetch(Budget.fetchRequest())
     }
     
     func calculateSum() {
