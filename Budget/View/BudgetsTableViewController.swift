@@ -11,7 +11,7 @@ import CoreData
 
 class BudgetsTableViewController: UITableViewController {
     
-//    MARK: - Setup
+//  MARK: - Setup
 
     @IBOutlet var accountTotalLabel: UILabel!
 
@@ -53,7 +53,7 @@ class BudgetsTableViewController: UITableViewController {
     }
 
     
-    // MARK: - Table view data source
+//  MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -65,7 +65,7 @@ class BudgetsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "budgetCell", for: indexPath) as! BudgetTableViewCell
 
         // Configure the cell...
-//        Call transactions and add them together budget.transactions
+        // Call transactions and add them together budget.transactions
         let budget = self.budgets[indexPath.row]
         cell.budgetNameLabel.text = budget.budgetName
         cell.budgetAmountLabel.text = currencyFormatter.string(for: budget.budgetAmount)
@@ -84,7 +84,7 @@ class BudgetsTableViewController: UITableViewController {
         return cell
     }
     
-    // MARK: - Add New Budget
+//  MARK: - Add New Budget
     
     @IBAction func addButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Add new budget", message: nil, preferredStyle: .alert)
@@ -161,7 +161,7 @@ class BudgetsTableViewController: UITableViewController {
         }
     }
     
-//    MARK: - ???
+//  MARK: - ???
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -180,8 +180,8 @@ class BudgetsTableViewController: UITableViewController {
         return true
     }
     
-
-
+//  MARK: - Moving TableView Cells
+    
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -192,7 +192,7 @@ class BudgetsTableViewController: UITableViewController {
         budgets.insert(budgetToMove, at: destinationIndexPath.row)
     }
 
-    // MARK: - Navigation
+//  MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //detect the correct segue, the edit segue
